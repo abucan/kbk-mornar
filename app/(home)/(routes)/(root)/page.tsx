@@ -1,11 +1,11 @@
-import { Banner } from '../_components/banner';
 import { Navbar } from '../_components/navbar';
+import { Hero } from '../_components/hero';
 
 const RootPage = () => {
   return (
-    <div>
-      <Banner />
+    <div className=''>
       <Navbar />
+      <Hero />
     </div>
   );
 };
