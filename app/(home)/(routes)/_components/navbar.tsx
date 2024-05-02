@@ -24,7 +24,14 @@ export const Navbar = () => {
         >
           <ul className='justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0'>
             {navLinks.map((item, idx) => {
-              return <NavItem idx={idx} path={item.path} title={item.title} />;
+              return (
+                <NavItem
+                  key={idx}
+                  idx={idx}
+                  path={item.path}
+                  title={item.title}
+                />
+              );
             })}
           </ul>
         </div>
