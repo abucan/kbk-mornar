@@ -11,7 +11,7 @@ interface BlogCardProps {
 
 export const BlogCard = ({ image, title, info }: BlogCardProps) => {
   return (
-    <Card className='w-full mx-auto group sm:max-w-sm p-6 rounded-none shadow-none'>
+    <Card className='w-full mx-auto group sm:max-w-sm p-6 rounded-none shadow-lg'>
       <a>
         <img
           src={image}
