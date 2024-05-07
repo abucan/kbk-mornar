@@ -3,14 +3,10 @@ import { Button } from '@/components/ui/button';
 interface HeaderProps {
   title: string;
   description: string;
-  buttonText: string;
+  buttonText?: string;
 }
 
-export const Header = ({
-  title,
-  description,
-  buttonText,
-}: HeaderProps) => {
+export const Header = ({ title, description, buttonText }: HeaderProps) => {
   return (
     <div className='max-w-screen-xl mx-auto px-4 md:px-8'>
       <div className='items-start justify-between py-4 border-b md:flex'>
@@ -21,7 +17,7 @@ export const Header = ({
           <p className='text-gray-600 mt-2'>{description}</p>
         </div>
         <div className='mt-6 md:mt-0'>
-          <Button variant={'outline'}>{buttonText}</Button>
+          {buttonText && <Button variant={'outline'}>{buttonText}</Button>}
         </div>
       </div>
     </div>

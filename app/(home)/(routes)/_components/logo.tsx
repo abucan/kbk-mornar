@@ -7,13 +7,8 @@ interface LogoProps {
 
 export const Logo = ({ width = 100 }: LogoProps) => {
   return (
-    <a href='javascript:void(0)'>
-      <Image
-        src={logo}
-        width={width}
-        alt='KBK Mornar Logo'
-        priority
-      />
+    <a>
+      <Image src={logo} width={width} alt='KBK Mornar Logo' priority />
     </a>
   );
 };
