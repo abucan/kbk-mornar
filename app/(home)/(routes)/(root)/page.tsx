@@ -1,6 +1,8 @@
 import { Hero } from '../_components/hero';
 import { AboutUs } from '../_components/about-us';
 import { Blog } from '../_components/blog';
+import { Schedule } from '../_components/schedule';
+import { Footer } from '../_components/footer';
 
 const RootPage = () => {
   return (
@@ -8,6 +10,8 @@ const RootPage = () => {
       <Hero />
       <AboutUs />
       <Blog />
+      <Schedule />
+      <Footer />
     </>
   );
 };
