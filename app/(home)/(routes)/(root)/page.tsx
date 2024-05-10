@@ -3,6 +3,7 @@ import { AboutUs } from '../_components/about-us';
 import { Blog } from '../_components/blog';
 import { Schedule } from '../_components/schedule';
 import { Footer } from '../_components/footer';
+import { Contact } from '../_components/contact';
 
 const RootPage = () => {
   return (
@@ -11,6 +12,7 @@ const RootPage = () => {
       <AboutUs />
       <Blog />
       <Schedule />
+      <Contact />
       <Footer />
     </>
   );

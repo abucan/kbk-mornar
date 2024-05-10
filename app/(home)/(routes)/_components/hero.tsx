@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import hero_bg from '@/public/hero-bg.png';
+import bg_1 from '@/public/bg_1.png';
 
 import { HeroCard } from './hero-card';
 
@@ -8,7 +8,7 @@ export const Hero = () => {
     <section className='mx-auto pb-12 items-center lg:flex relative w-full h-[50vh]'>
       <div className='-z-10'>
         <Image
-          src={hero_bg}
+          src={bg_1}
           alt='bg1'
           objectFit='cover'
           layout='fill'
