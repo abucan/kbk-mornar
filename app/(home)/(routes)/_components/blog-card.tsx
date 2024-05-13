@@ -11,14 +11,16 @@ interface BlogCardProps {
 
 export const BlogCard = ({ image, title, info }: BlogCardProps) => {
   return (
-    <Card className='w-full mx-auto group sm:max-w-sm p-6 rounded-none shadow-lg'>
+    <Card className='w-full mx-auto group sm:max-w-sm p-6 rounded-none shadow-lg flex flex-col'>
       <a>
-        <img
-          src={image}
-          loading='lazy'
-          alt={title}
-          className='w-full object-contain shadow-sm'
-        />
+        <div className='w-full grid place-items-center'>
+          <img
+            src={image}
+            loading='lazy'
+            alt={title}
+            className='w-full object-contain shadow-sm rounded'
+          />
+        </div>
         <div className='mt-3 space-y-2'>
           <h3 className='text-lg text-gray-800 duration-150 group-hover:text-indigo-600 font-semibold'>
             {title}
@@ -30,7 +32,7 @@ export const BlogCard = ({ image, title, info }: BlogCardProps) => {
       </a>
       <Separator />
       <Button
-        className='mt-4 w-full flex flex-row justify-end items-center'
+        className='w-full flex flex-row justify-end items-center mt-auto'
         variant={'link'}
       >
         Pročitaj više <ArrowRight className='h-5 w-5 ml-2' />
