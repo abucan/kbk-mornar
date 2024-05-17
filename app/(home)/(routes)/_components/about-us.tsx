@@ -3,14 +3,14 @@ import kbkintro from '@/public/kbkintro.jpeg';
 
 export const AboutUs = () => {
   return (
-    <section className='relative mt-0 sm:mt-20 bg-[#F1F5F9]'>
+    <section className='relative mt-0 sm:mt-20 bg-[#F1F5F9]' id='onama'>
       <div className='py-16'>
         <div className='max-w-screen-xl mx-auto md:px-8'>
           <div className='items-center gap-x-12 sm:px-4 md:px-0 lg:flex'>
             <div className='flex-1 sm:hidden lg:block'>
               <Image
                 src={kbkintro}
-                className='md:max-w-lg sm:rounded-lg px-4 sm:px-0'
+                className='md:max-w-lg rounded-md shadow-md px-4 sm:px-0'
                 alt='Intro'
               />
             </div>

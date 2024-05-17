@@ -10,12 +10,12 @@ import {
 
 export const Schedule = () => {
   return (
-    <section className='relative pt-32'>
+    <section className='relative pt-16 sm:pt-32' id='raspored'>
       <Header
         title='Raspored treninga'
         description='Pogledajte raspored treninga i pronađite najbolji termin za sebe.'
       />
-      <div className='max-w-screen-xl mx-auto px-4 md:px-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-16'>
+      <div className='max-w-screen-xl mx-auto px-4 md:px-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-8 sm:mt-16'>
         {gymSchedule.map((day) => {
           return (
             <Accordion

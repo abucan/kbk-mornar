@@ -3,14 +3,12 @@ import { Button } from '@/components/ui/button';
 interface HeaderProps {
   title: string;
   description: string;
-  buttonText?: string;
   isRightSide?: boolean;
 }
 
 export const Header = ({
   title,
   description,
-  buttonText,
   isRightSide = false,
 }: HeaderProps) => {
   return (
@@ -27,15 +25,14 @@ export const Header = ({
         >
           <h3
             className={`text-gray-800 text-3xl font-semibold sm:text-4xl rounded-lg border-[#e08639] ${
-              isRightSide ? 'sm:border-r-8 sm:pr-2' : 'sm:border-l-8 sm:pl-2'
+              isRightSide ? 'border-r-8 pr-2' : 'border-l-8 pl-2'
             }`}
           >
             {title}
           </h3>
-          <p className='text-gray-600 mt-2'>{description}</p>
-        </div>
-        <div className='mt-6 md:mt-0'>
-          {buttonText && <Button variant={'outline'}>{buttonText}</Button>}
+          <p className='text-gray-600 mt-2 text-center sm:text-left'>
+            {description}
+          </p>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ export const TrainerItem = ({
       <div className='w-full h-60 sm:h-52 md:h-56'>
         <img
           src={avatar}
-          className='w-full h-full object-cover object-center shadow-md rounded-xl'
+          className='w-full h-full object-cover object-center shadow-md rounded-md'
           alt=''
         />
       </div>

@@ -10,7 +10,7 @@ export const Footer = () => {
   return (
     <div className=''>
       <footer className='text-gray-500 bg-white px-4 py-16 max-w-screen-xl mx-auto md:px-8'>
-        <div className='max-w-lg sm:mx-auto sm:text-center'>
+        <div className='max-w-lg sm:mx-auto text-center'>
           <Logo width={128} isFooter />
           <p className='leading-relaxed mt-2 text-[15px]'>
             Posvećeni smo vašem uspjehu u borilačkim sportovima. Pridružite nam
@@ -18,7 +18,7 @@ export const Footer = () => {
             kontaktirajte nas.
           </p>
         </div>
-        <ul className='items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0'>
+        <ul className='items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0 text-center'>
           {navLinks.map((item, idx) => (
             <li className=' hover:text-gray-800' key={idx}>
               <a href={item.path}>{item.title}</a>
@@ -31,7 +31,7 @@ export const Footer = () => {
             rights reserved.
           </div>
           <div className='mt-6 sm:mt-0'>
-            <ul className='flex items-center space-x-4'>
+            <ul className='flex items-center justify-center sm:justify-start space-x-4'>
               <li className='w-10 h-10 border rounded-full flex items-center justify-center'>
                 <a href='https://www.facebook.com/kbkmornar' target='_blank'>
                   <Image src={facebook} alt='Facebook' />
