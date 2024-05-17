@@ -4,6 +4,7 @@ import { Logo } from './logo';
 import facebook from '@/public/facebook.svg';
 import instagram from '@/public/instagram.svg';
 import Image from 'next/image';
+import { Copyright } from 'lucide-react';
 
 export const Footer = () => {
   return (
@@ -19,16 +20,15 @@ export const Footer = () => {
         </div>
         <ul className='items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0'>
           {navLinks.map((item, idx) => (
-            <li className=' hover:text-gray-800'>
-              <a key={idx} href={item.path}>
-                {item.title}
-              </a>
+            <li className=' hover:text-gray-800' key={idx}>
+              <a href={item.path}>{item.title}</a>
             </li>
           ))}
         </ul>
         <div className='mt-8 items-center justify-between sm:flex'>
-          <div className='mt-4 sm:mt-0'>
-            &copy; 2024 KBK Mornar Split - All rights reserved.
+          <div className='mt-4 sm:mt-0 flex flex-row space-x-2 items-center justify-center'>
+            <Copyright className='h-4 w-4 mr-2' /> 2024 KBK Mornar Split - All
+            rights reserved.
           </div>
           <div className='mt-6 sm:mt-0'>
             <ul className='flex items-center space-x-4'>
