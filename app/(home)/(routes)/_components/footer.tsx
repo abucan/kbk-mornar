@@ -8,7 +8,7 @@ import Image from 'next/image';
 export const Footer = () => {
   return (
     <div className=''>
-      <footer className='text-gray-500 bg-white px-4 py-5 max-w-screen-xl mx-auto md:px-8'>
+      <footer className='text-gray-500 bg-white px-4 py-16 max-w-screen-xl mx-auto md:px-8'>
         <div className='max-w-lg sm:mx-auto sm:text-center'>
           <Logo width={128} isFooter />
           <p className='leading-relaxed mt-2 text-[15px]'>

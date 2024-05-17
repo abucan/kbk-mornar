@@ -10,11 +10,10 @@ import {
 
 export const Schedule = () => {
   return (
-    <section className='relative pb-32'>
+    <section className='relative pt-32'>
       <Header
         title='Raspored treninga'
         description='Pogledajte raspored treninga i pronađite najbolji termin za sebe.'
-        isRightSide
       />
       <div className='max-w-screen-xl mx-auto px-4 md:px-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-16'>
         {gymSchedule.map((day) => {
@@ -39,9 +38,7 @@ export const Schedule = () => {
                         <p className='text-base font-semibold'>
                           {session.name}
                         </p>
-                        <p className='text-sm font-normal'>
-                          {session.trainer}
-                        </p>
+                        <p className='text-sm font-normal'>{session.trainer}</p>
                         <p className='text-base font-semibold'>
                           {session.time}
                         </p>

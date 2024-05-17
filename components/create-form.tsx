@@ -19,9 +19,9 @@ const formSchema = z.object({
   description: z.string().min(2, {
     message: 'Unesite opis.',
   }),
-  image: z.string().min(2, {
-    message: 'Prenesite sliku.',
-  }),
+  // image: z.string().min(2, {
+  //   message: 'Prenesite sliku.',
+  // }),
 });
 
 export const CreateForm = () => {
@@ -30,9 +30,10 @@ export const CreateForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: '',
-      description: '',
-      image: '',
+      title: 'Novi tekst',
+      description:
+        'lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum',
+      // image: z.any,
     },
   });
 
@@ -49,7 +50,7 @@ export const CreateForm = () => {
     uploadBytes(imgs, file).then((data) => {
       getDownloadURL(data.ref).then((val) => {
         console.log(val);
-        form.setValue('image', val);
+        // form.setValue('image', val);
         setImg(val);
       });
     });

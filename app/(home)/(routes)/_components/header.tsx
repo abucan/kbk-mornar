@@ -21,13 +21,13 @@ export const Header = ({
         }`}
       >
         <div
-          className={`max-w-lg flex flex-col ${
-            isRightSide ? 'items-end' : 'items-start'
+          className={`max-w-2xl flex flex-col items-center ${
+            isRightSide ? 'sm:items-end' : 'sm:items-start'
           }`}
         >
           <h3
             className={`text-gray-800 text-3xl font-semibold sm:text-4xl rounded-lg border-[#e08639] ${
-              isRightSide ? 'border-r-8 pr-2' : 'border-l-8 pl-2'
+              isRightSide ? 'sm:border-r-8 sm:pr-2' : 'sm:border-l-8 sm:pl-2'
             }`}
           >
             {title}
@@ -35,9 +35,7 @@ export const Header = ({
           <p className='text-gray-600 mt-2'>{description}</p>
         </div>
         <div className='mt-6 md:mt-0'>
-          {buttonText && (
-            <Button variant={'outline'}>{buttonText}</Button>
-          )}
+          {buttonText && <Button variant={'outline'}>{buttonText}</Button>}
         </div>
       </div>
     </div>

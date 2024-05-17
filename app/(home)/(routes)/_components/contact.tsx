@@ -3,6 +3,7 @@
 import { SendEmailForm } from '@/components/send-email-form';
 import { Map } from './map';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { Card } from '@/components/ui/card';
 
 export const Contact = () => {
   const contactMethods = [
@@ -20,7 +21,7 @@ export const Contact = () => {
     },
   ];
   return (
-    <main className='py-14 bg-slate-100'>
+    <main className='mt-32 py-16 bg-slate-100'>
       <div className='max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8'>
         <div className='max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none'>
           <div className='max-w-lg space-y-3'>
@@ -46,8 +47,10 @@ export const Contact = () => {
             </div>
             <Map />
           </div>
-          <div className='flex-1 mt-12 sm:max-w-lg lg:max-w-md'>
-            <SendEmailForm />
+          <div className='flex-1 sm:max-w-lg lg:max-w-md grid place-items-center'>
+            <Card className='p-8 w-[450px]'>
+              <SendEmailForm />
+            </Card>
           </div>
         </div>
       </div>

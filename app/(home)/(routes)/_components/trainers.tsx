@@ -14,11 +14,10 @@ const team = [
 
 export const Trainers = () => {
   return (
-    <section className='py-32 relative'>
+    <section className='pt-32 relative'>
       <Header
         title='Upoznajte naše trenere'
-        description='Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.Lorem Ipsum has been the industrys standard dummy.'
+        description='Naši iskusni i certificirani treneri predani su vašem napretku, pružajući stručnu podršku i motivaciju na svakom koraku vašeg sportskog puta.'
       />
       <div className='max-w-screen-xl mx-auto px-4 md:px-8'>
         <div className='mt-12'>
