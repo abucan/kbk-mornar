@@ -1,21 +1,32 @@
 import Image from 'next/image';
 import logo from '@/public/logo.svg';
+import logo2 from '@/public/muay1.png';
+import { cn } from '@/lib/utils';
 
 interface LogoProps {
   width?: number;
   isFooter?: boolean;
 }
 
-export const Logo = ({ width = 100, isFooter }: LogoProps) => {
+export const Logo = ({
+  width = 100,
+  isFooter = false,
+}: LogoProps) => {
   return (
-    <a>
+    <a
+      className={cn(
+        'flex flex-row gap-4 w-full',
+        isFooter && 'justify-center',
+      )}
+    >
       <Image
         src={logo}
         width={width}
         alt='KBK Mornar Logo'
         priority
-        className={`${isFooter ? 'mx-auto' : ''}`}
+        className='border-r pr-4'
       />
+      <Image src={logo2} width={85} alt='KBK Mornar Logo' priority />
     </a>
   );
 };
