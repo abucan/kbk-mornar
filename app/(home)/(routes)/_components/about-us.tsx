@@ -1,5 +1,8 @@
+'use client';
 import Image from 'next/image';
 import kbkintro from '@/public/kbkintro.jpeg';
+import { aboutImage, fadeIn } from '@/utils/animations';
+import { motion } from 'framer-motion';
 
 export const AboutUs = () => {
   return (
@@ -7,14 +10,25 @@ export const AboutUs = () => {
       <div className='py-16'>
         <div className='max-w-screen-xl mx-auto md:px-8'>
           <div className='items-center gap-x-12 sm:px-4 md:px-0 lg:flex'>
-            <div className='flex-1 sm:hidden lg:block'>
+            <motion.div
+              variants={fadeIn('right', 0)}
+              initial='hidden'
+              whileInView={'show'}
+              viewport={{ once: true }}
+            >
               <Image
                 src={kbkintro}
                 className='md:max-w-lg rounded-md shadow-md px-4 sm:px-0'
                 alt='Intro'
               />
-            </div>
-            <div className='max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl'>
+            </motion.div>
+            <motion.div
+              variants={fadeIn('left', 0)}
+              initial='hidden'
+              whileInView={'show'}
+              viewport={{ once: true }}
+              className='max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl'
+            >
               <h3 className='text-indigo-600 font-semibold'>
                 KBK MORNAR SPLIT
               </h3>
@@ -30,7 +44,7 @@ export const AboutUs = () => {
                 programe prilagođene vašim ciljevima. Pridružite nam se i
                 postanite dio naše sportske obitelji!
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

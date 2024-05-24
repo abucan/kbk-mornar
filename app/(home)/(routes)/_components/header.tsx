@@ -1,4 +1,6 @@
-import { Button } from '@/components/ui/button';
+'use client';
+import { fadeIn } from '@/utils/animations';
+import { motion } from 'framer-motion';
 
 interface HeaderProps {
   title: string;
@@ -12,7 +14,13 @@ export const Header = ({
   isRightSide = false,
 }: HeaderProps) => {
   return (
-    <div className='max-w-screen-xl mx-auto px-4 md:px-8'>
+    <motion.div
+      variants={fadeIn('up', 0)}
+      initial='hidden'
+      whileInView={'show'}
+      viewport={{ once: true }}
+      className='max-w-screen-xl mx-auto px-4 md:px-8'
+    >
       <div
         className={`items-start justify-between py-4 border-b md:flex ${
           isRightSide ? 'flex-row-reverse' : ''
@@ -35,6 +43,6 @@ export const Header = ({
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

@@ -2,6 +2,7 @@
 import { useFetchNews } from '@/utils/getNews';
 import { BlogCard } from './blog-card';
 import { Header } from './header';
+import { motion } from 'framer-motion';
 
 export const Blog = () => {
   const { projects } = useFetchNews();

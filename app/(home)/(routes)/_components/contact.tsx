@@ -3,6 +3,8 @@
 import { SendEmailForm } from '@/components/send-email-form';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { motion } from 'framer-motion';
+import { fadeIn } from '@/utils/animations';
 
 export const Contact = () => {
   const contactMethods = [
@@ -23,7 +25,13 @@ export const Contact = () => {
     <main className='mt-16 sm:mt-32 py-16 bg-slate-100' id='kontakt'>
       <div className='max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8'>
         <div className='max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none space-y-4 lg:space-y-0'>
-          <div className='max-w-lg space-y-4'>
+          <motion.div
+            variants={fadeIn('right', 0.25)}
+            initial='hidden'
+            whileInView={'show'}
+            viewport={{ once: true }}
+            className='max-w-lg space-y-4'
+          >
             <h3 className='text-indigo-600 font-semibold uppercase text-sm'>
               Dodatne informacije
             </h3>
@@ -49,12 +57,18 @@ export const Contact = () => {
               className='w-full h-[250px]'
               loading='lazy'
             ></iframe>
-          </div>
-          <div className='flex-1 sm:max-w-lg lg:max-w-md grid place-items-center'>
+          </motion.div>
+          <motion.div
+            variants={fadeIn('left', 0.25)}
+            initial='hidden'
+            whileInView={'show'}
+            viewport={{ once: true }}
+            className='flex-1 sm:max-w-lg lg:max-w-md grid place-items-center'
+          >
             <Card className='p-8 w-full lg:w-[450px] rounded-none shadow-md'>
               <SendEmailForm />
             </Card>
-          </div>
+          </motion.div>
         </div>
       </div>
     </main>
