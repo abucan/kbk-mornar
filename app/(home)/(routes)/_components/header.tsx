@@ -15,7 +15,7 @@ export const Header = ({
 }: HeaderProps) => {
   return (
     <motion.div
-      variants={fadeIn('up', 0)}
+      variants={fadeIn('up', 0.25)}
       initial='hidden'
       whileInView={'show'}
       viewport={{ once: true }}

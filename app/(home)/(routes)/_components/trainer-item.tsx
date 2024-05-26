@@ -1,8 +1,8 @@
-interface TrainerItemProps {
+export interface TrainerItemProps {
   avatar: string;
   name: string;
   title: string;
-  desc: string;
+  desc?: string;
 }
 
 export const TrainerItem = ({
@@ -21,9 +21,11 @@ export const TrainerItem = ({
         />
       </div>
       <div className='mt-4'>
-        <h4 className='text-lg text-gray-700 font-semibold'>{name}</h4>
+        <h4 className='text-lg text-gray-700 font-semibold'>
+          {name}
+        </h4>
         <p className='text-indigo-600'>{title}</p>
-        <p className='text-gray-600 mt-2'>{desc}</p>
+        <p className='text-gray-600 mt-2'>{desc && desc}</p>
       </div>
     </li>
   );
