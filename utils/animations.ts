@@ -11,6 +11,24 @@ const heroContainer = {
   },
 };
 
+const delayChildren = {
+  visible: {
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+      duration: 0.75,
+    },
+  },
+};
+
+const trainerItem = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
 const heroItem = {
   hidden: { y: 20, opacity: 0 },
   visible: {
@@ -67,4 +85,12 @@ const fadeIn = (direction: string, delay: number) => {
   };
 };
 
-export { heroContainer, heroItem, aboutImage, fadeIn, buttonHover };
+export {
+  heroContainer,
+  heroItem,
+  aboutImage,
+  fadeIn,
+  buttonHover,
+  delayChildren,
+  trainerItem,
+};

@@ -6,10 +6,10 @@ import { TrainerItem, TrainerItemProps } from './trainer-item';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
+import { delayChildren, trainerItem } from '@/utils/animations';
 
 export const Trainers = () => {
-  const [selectedId, setSelectedId] =
-    useState<TrainerItemProps | null>(null);
+  const [selectedId, setSelectedId] = useState<TrainerItemProps | null>(null);
 
   return (
     <section className='pt-32 relative' id='treneri'>
@@ -19,9 +19,16 @@ export const Trainers = () => {
       />
       <div className='max-w-screen-xl mx-auto px-4 md:px-8'>
         <div className='mt-8 sm:mt-16'>
-          <ul className='grid gap-8 sm:grid-cols-2 md:grid-cols-3'>
+          <motion.ul
+            variants={delayChildren}
+            initial='hidden'
+            whileInView='visible'
+            viewport={{ once: true }}
+            className='grid gap-8 sm:grid-cols-2 md:grid-cols-3'
+          >
             {trainers.map((item, idx) => (
               <motion.div
+                variants={trainerItem}
                 layoutId={item.name}
                 key={idx}
                 onClick={() => setSelectedId(item)}
@@ -34,23 +41,24 @@ export const Trainers = () => {
                 />
               </motion.div>
             ))}
-          </ul>
+          </motion.ul>
           <AnimatePresence>
-            {selectedId && (
-              <motion.div layoutId={selectedId.name}>
-                <div>
-                  <TrainerItem
-                    avatar={selectedId.avatar}
-                    name={selectedId.name}
-                    desc={selectedId.desc}
-                    title={selectedId.title}
-                  />
-                  <motion.button
-                    className='bg-red-500 p-10'
-                    onClick={() => setSelectedId(null)}
-                  />
-                </div>
-              </motion.div>
+            {selectedId?.name && (
+              <motion.button onClick={() => setSelectedId(null)}>
+                <motion.div
+                  layoutId={selectedId.name}
+                  className='fixed inset-0 flex items-center justify-center z-50 bg-black/80'
+                >
+                  <div className='bg-white p-4 rounded-md shadow-lg max-w-lg relative'>
+                    <TrainerItem
+                      avatar={selectedId.avatar}
+                      name={selectedId.name}
+                      desc={selectedId.desc}
+                      title={selectedId.title}
+                    />
+                  </div>
+                </motion.div>
+              </motion.button>
             )}
           </AnimatePresence>
         </div>

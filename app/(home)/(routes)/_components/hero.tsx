@@ -3,18 +3,11 @@ import Image from 'next/image';
 import bg_1 from '@/public/bg_1.png';
 
 import { HeroCard } from './hero-card';
-import { motion } from 'framer-motion';
-import { aboutImage } from '@/utils/animations';
 
 export const Hero = () => {
   return (
     <section className='mx-auto pb-12 items-center lg:flex relative w-full h-[50vh]'>
-      <motion.div
-        variants={aboutImage}
-        initial='hidden'
-        animate='visible'
-        viewport={{ once: true }}
-      >
+      <div>
         <Image
           src={bg_1}
           alt='bg1'
@@ -23,7 +16,7 @@ export const Hero = () => {
           className='object-right sm:object-center'
           quality={100}
         />
-      </motion.div>
+      </div>
       <div className='absolute right-1/2 transform translate-x-1/2 translate-y-1/4 sm:translate-y-0 sm:-bottom-12'>
         <HeroCard />
       </div>

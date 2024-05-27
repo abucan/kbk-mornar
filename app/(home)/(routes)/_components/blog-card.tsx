@@ -3,7 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Separator } from '@radix-ui/react-separator';
 import { ArrowRight } from 'lucide-react';
 
-interface BlogCardProps {
+export interface BlogCardProps {
   image: string;
   title: string;
   info: string;
@@ -11,12 +11,12 @@ interface BlogCardProps {
 
 export const BlogCard = ({ image, title, info }: BlogCardProps) => {
   return (
-    <Card className='w-full mx-auto group sm:max-w-sm p-6 rounded-none shadow-none flex flex-col'>
+    <Card className='w-full h-full mx-auto group sm:max-w-sm p-6 rounded-none shadow-none flex flex-col'>
       <a>
         <div className='w-full grid place-items-center'>
           <img
             src={image}
-            loading='lazy'
+            // loading='lazy'
             alt={title}
             className='w-full object-contain rounded-md'
           />
