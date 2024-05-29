@@ -10,7 +10,6 @@ import { delayChildren, trainerItem } from '@/utils/animations';
 
 export const Trainers = () => {
   const [selectedId, setSelectedId] = useState<TrainerItemProps | null>(null);
-
   return (
     <section className='pt-32 relative' id='treneri'>
       <Header
@@ -42,21 +41,29 @@ export const Trainers = () => {
               </motion.div>
             ))}
           </motion.ul>
-          <AnimatePresence>
+          <AnimatePresence mode='wait'>
             {selectedId?.name && (
               <motion.button onClick={() => setSelectedId(null)}>
                 <motion.div
-                  layoutId={selectedId.name}
-                  className='fixed inset-0 flex items-center justify-center z-50 bg-black/80'
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  layoutId={selectedId.title}
+                  className='w-[100vw] h-[100vh] fixed top-0 left-0 flex items-center justify-center z-50 bg-black/80'
                 >
-                  <div className='bg-white p-4 rounded-md shadow-lg max-w-lg relative'>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.3 }}
+                    className='bg-white p-4 rounded-md shadow-lg max-w-lg relative '
+                  >
                     <TrainerItem
                       avatar={selectedId.avatar}
                       name={selectedId.name}
                       desc={selectedId.desc}
                       title={selectedId.title}
                     />
-                  </div>
+                  </motion.div>
                 </motion.div>
               </motion.button>
             )}
