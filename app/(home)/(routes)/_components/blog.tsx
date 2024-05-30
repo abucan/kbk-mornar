@@ -3,9 +3,22 @@ import { useFetchNews } from '@/utils/getNews';
 import { BlogCard, BlogCardProps } from './blog-card';
 import { Header } from './header';
 import { AnimatePresence, motion } from 'framer-motion';
-import { heroContainer, heroItem, trainerItem } from '@/utils/animations';
+import {
+  heroContainer,
+  heroItem,
+  trainerItem,
+} from '@/utils/animations';
 import { useEffect, useState } from 'react';
 import { BlogCardDetails } from './blog-card-details';
+
+// carousel
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 export const Blog = () => {
   const { projects } = useFetchNews();
@@ -38,54 +51,65 @@ export const Blog = () => {
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true }}
-        className='max-w-screen-xl mx-auto px-4 md:px-8'
+        className='max-w-screen-xl mx-auto px-4 md:px-8 flex justify-center'
       >
-        <ul className='grid gap-x-8 gap-y-10 mt-8 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3'>
-          {projects &&
-            projects.map((item: any) => {
-              return (
-                <motion.li
-                  variants={trainerItem}
-                  className='list-none'
-                  key={item.title}
-                  layoutId={item.title}
-                  onClick={() => setSelectedId(item)}
-                >
-                  <BlogCard
-                    title={item.title}
-                    info={item.info}
-                    image={item.img}
-                  />
-                </motion.li>
-              );
-            })}
-        </ul>
-        <AnimatePresence>
-          {selectedId?.title && (
-            <motion.button onClick={() => setSelectedId(null)}>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                layoutId={selectedId.title + '1'}
-                className='fixed inset-0 flex items-center justify-center z-50 bg-black/80'
-              >
+        <Carousel className='w-full max-w-sm mt-8 md:mt-16'>
+          {/* <ul className='grid gap-x-8 gap-y-10 mt-8 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3'> */}
+          <CarouselContent>
+            {projects &&
+              projects.map((item: any) => {
+                return (
+                  <CarouselItem
+                    key={item.title}
+                    className='lg:basis-1/2'
+                  >
+                    <motion.li
+                      variants={trainerItem}
+                      className='list-none'
+                      key={item.title}
+                      layoutId={item.title}
+                      onClick={() => setSelectedId(item)}
+                    >
+                      <BlogCard
+                        title={item.title}
+                        info={item.info}
+                        image={item.img}
+                      />
+                    </motion.li>
+                  </CarouselItem>
+                );
+              })}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+          {/* </ul> */}
+          <AnimatePresence>
+            {selectedId?.title && (
+              <motion.button onClick={() => setSelectedId(null)}>
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.3 }}
-                  className='max-w-4xl'
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  layoutId={selectedId.title + '1'}
+                  className='fixed inset-0 flex items-center justify-center z-50 bg-black/80'
                 >
-                  <BlogCardDetails
-                    title={selectedId.title}
-                    info={selectedId.info}
-                    image={selectedId.img}
-                  />
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.3 }}
+                    className='max-w-4xl'
+                  >
+                    <BlogCardDetails
+                      title={selectedId.title}
+                      info={selectedId.info}
+                      image={selectedId.img}
+                    />
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            </motion.button>
-          )}
-        </AnimatePresence>
+              </motion.button>
+            )}
+          </AnimatePresence>
+        </Carousel>
       </motion.div>
     </section>
   );

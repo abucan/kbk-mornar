@@ -6,14 +6,14 @@ import { HeroCard } from './hero-card';
 
 export const Hero = () => {
   return (
-    <section className='mx-auto pb-12 items-center lg:flex relative w-full h-[50vh]'>
+    <section className='mx-auto pb-12 items-center lg:flex relative w-full h-[50vh] spacer layer1'>
       <div>
         <Image
           src={bg_1}
           alt='bg1'
           objectFit='cover'
           layout='fill'
-          className='object-right sm:object-center'
+          className='object-right sm:object-center hidden sm:block'
           quality={100}
         />
       </div>

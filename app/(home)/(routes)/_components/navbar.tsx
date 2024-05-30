@@ -4,6 +4,8 @@ import { NavItem } from './nav-item';
 import { HamMenu } from './ham-menu';
 import { navLinks } from '@/utils/nav-links';
 import { Logo } from './logo';
+import { motion } from 'framer-motion';
+import { fadeIn } from '@/utils/animations';
 
 export const Navbar = () => {
   const [state, setState] = useState(false);

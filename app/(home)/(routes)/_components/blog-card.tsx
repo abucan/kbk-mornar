@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@radix-ui/react-separator';
 import { ArrowRight } from 'lucide-react';
 
@@ -11,8 +11,8 @@ export interface BlogCardProps {
 
 export const BlogCard = ({ image, title, info }: BlogCardProps) => {
   return (
-    <Card className='w-full h-full mx-auto group sm:max-w-sm p-6 rounded-none shadow-none flex flex-col'>
-      <a>
+    <Card className='mx-auto group p-6 rounded-none shadow-none flex flex-col w-full h-full'>
+      <CardContent className='flex flex-col aspect-square items-center justify-center p-6'>
         <div className='w-full grid place-items-center'>
           <img
             src={image}
@@ -29,7 +29,7 @@ export const BlogCard = ({ image, title, info }: BlogCardProps) => {
             {info}
           </p>
         </div>
-      </a>
+      </CardContent>
       <Separator />
       <Button
         className='w-full flex flex-row justify-end items-center mt-auto'

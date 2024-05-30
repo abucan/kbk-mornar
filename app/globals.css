@@ -94,9 +94,27 @@
 }
 
 .custom-shape-divider-top-1714761931 .shape-fill {
-  fill: #F1F5F9;
+  fill: #f1f5f9;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.spacer {
+  aspect-ratio: 675/900;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.layer1 {
+  background-image: url('../public/blobo1.svg');
 }

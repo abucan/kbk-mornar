@@ -15,7 +15,7 @@ export const Logo = ({
   return (
     <a
       className={cn(
-        'flex flex-row gap-4 w-full',
+        'flex flex-row gap-4 w-full justify-center sm:justify-start',
         isFooter && 'justify-center',
       )}
     >
