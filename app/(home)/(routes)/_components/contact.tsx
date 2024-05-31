@@ -1,5 +1,4 @@
 'use client';
-
 import { SendEmailForm } from '@/components/send-email-form';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -21,6 +20,7 @@ export const Contact = () => {
       contact: 'Poljud, Split, Hrvatska',
     },
   ];
+
   return (
     <main className='mt-16 sm:mt-32 py-16 bg-slate-100' id='kontakt'>
       <div className='max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8'>

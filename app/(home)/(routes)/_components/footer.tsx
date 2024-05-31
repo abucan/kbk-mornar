@@ -3,10 +3,11 @@ import { navLinks } from '@/utils/nav-links';
 import { Logo } from './logo';
 import facebook from '@/public/facebook.svg';
 import instagram from '@/public/instagram.svg';
-import Image from 'next/image';
 import { Copyright } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { buttonHover, fadeIn } from '@/utils/animations';
+import { fadeIn } from '@/utils/animations';
+import { FOOTER_COPYRIGHT, FOOTER_TEXT } from '@/utils/strings';
+import { FooterSocialButton } from './footer-social-button';
 
 export const Footer = () => {
   return (
@@ -20,11 +21,7 @@ export const Footer = () => {
           className='max-w-lg sm:mx-auto text-center'
         >
           <Logo width={128} isFooter />
-          <p className='leading-relaxed mt-2 text-[15px]'>
-            Posvećeni smo vašem uspjehu u borilačkim sportovima. Pridružite nam
-            se i postanite dio naše zajednice. Za više informacija,
-            kontaktirajte nas.
-          </p>
+          <p className='leading-relaxed mt-2 text-[15px]'>{FOOTER_TEXT}</p>
         </motion.div>
         <motion.ul
           variants={fadeIn('up', 0.35)}
@@ -47,8 +44,8 @@ export const Footer = () => {
             viewport={{ once: true }}
             className='mt-4 sm:mt-0 flex flex-row space-x-2 items-center justify-center'
           >
-            <Copyright className='h-4 w-4 mr-2' /> 2024 KBK Mornar Split - All
-            rights reserved.
+            <Copyright className='h-4 w-4 mr-2' />
+            {FOOTER_COPYRIGHT}
           </motion.div>
           <motion.div
             variants={fadeIn('left', 0.35)}
@@ -58,27 +55,16 @@ export const Footer = () => {
             className='mt-6 sm:mt-0'
           >
             <ul className='flex items-center justify-center sm:justify-start space-x-4'>
-              <motion.li
-                variants={buttonHover}
-                whileHover={'show'}
-                className='w-10 h-10 border rounded-full flex items-center justify-center'
-              >
-                <a href='https://www.facebook.com/kbkmornar' target='_blank'>
-                  <Image src={facebook} alt='Facebook' />
-                </a>
-              </motion.li>
-              <motion.li
-                variants={buttonHover}
-                whileHover={'show'}
-                className='w-10 h-10 border rounded-full flex items-center justify-center'
-              >
-                <a
-                  href='https://www.instagram.com/gym_kbkmornar_split/?hl=en'
-                  target='_blank'
-                >
-                  <Image src={instagram} alt='Instagram' />
-                </a>
-              </motion.li>
+              <FooterSocialButton
+                src={facebook}
+                alt='Facebook'
+                href='https://www.facebook.com/kbkmornar'
+              />
+              <FooterSocialButton
+                src={instagram}
+                alt='Instagram'
+                href='https://www.instagram.com/gym_kbkmornar_split/?hl=en'
+              />
             </ul>
           </motion.div>
         </div>

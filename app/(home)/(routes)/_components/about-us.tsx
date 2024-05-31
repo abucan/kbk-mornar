@@ -3,6 +3,7 @@ import Image from 'next/image';
 import kbkintro from '@/public/kbkintro.jpeg';
 import { fadeIn } from '@/utils/animations';
 import { motion } from 'framer-motion';
+import { ABOUT_US_TEXT } from '@/utils/strings';
 
 export const AboutUs = () => {
   return (
@@ -35,15 +36,7 @@ export const AboutUs = () => {
               <p className='text-gray-800 text-3xl font-semibold sm:text-4xl border-l-8 rounded-lg border-[#e08639] pl-2'>
                 O nama
               </p>
-              <p className='mt-3 text-gray-600'>
-                Dobrodošli na stranicu Kluba borilačkih sportova Mornar Split!
-                Naš klub, s iskusnim trenerima, pruža vrhunsku obuku u boksu,
-                kickboxingu, muay thai i drugim disciplinama. Ponosimo se našim
-                uspjesima i vrijednostima poput discipline i poštovanja. KBK
-                Mornar Split otvoren je za sve uzraste i razine iskustva, nudeći
-                programe prilagođene vašim ciljevima. Pridružite nam se i
-                postanite dio naše sportske obitelji!
-              </p>
+              <p className='mt-3 text-gray-600'>{ABOUT_US_TEXT}</p>
             </motion.div>
           </div>
         </div>

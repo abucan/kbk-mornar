@@ -1,15 +1,9 @@
 'use client';
 import { gymSchedule } from '@/utils/gym-schedule';
 import { Header } from './header';
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 import { motion } from 'framer-motion';
 import { trainerContainer, trainerItem } from '@/utils/animations';
+import { ScheduleItem } from './schedule-item';
 
 export const Schedule = () => {
   return (
@@ -28,38 +22,7 @@ export const Schedule = () => {
         {gymSchedule.map((day) => {
           return (
             <motion.div variants={trainerItem} key={day.dayOfWeek}>
-              <Accordion
-                type='single'
-                collapsible
-                className='bg-card text-card-foreground'
-                key={day.dayOfWeek}
-              >
-                <AccordionItem value={`item-${day.dayOfWeek}`}>
-                  <AccordionTrigger className='p-4'>
-                    {day.dayOfWeek}
-                  </AccordionTrigger>
-                  <AccordionContent className='p-4 pb-6 space-y-6'>
-                    {day.sessions.map((session, index) => {
-                      return (
-                        <div
-                          className='border-l-2 rounded-lg border-[#e08639] pl-2'
-                          key={session.name}
-                        >
-                          <p className='text-base font-semibold'>
-                            {session.name}
-                          </p>
-                          <p className='text-sm font-normal'>
-                            {session.trainer}
-                          </p>
-                          <p className='text-base font-semibold'>
-                            {session.time}
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+              <ScheduleItem day={day} />
             </motion.div>
           );
         })}
