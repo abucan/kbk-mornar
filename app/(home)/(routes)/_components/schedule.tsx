@@ -9,12 +9,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { motion } from 'framer-motion';
-import {
-  delayChildren,
-  heroContainer,
-  heroItem,
-  trainerItem,
-} from '@/utils/animations';
+import { trainerContainer, trainerItem } from '@/utils/animations';
 
 export const Schedule = () => {
   return (
@@ -24,7 +19,7 @@ export const Schedule = () => {
         description='Pogledajte raspored treninga i pronađite najbolji termin za sebe.'
       />
       <motion.div
-        variants={delayChildren}
+        variants={trainerContainer}
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true }}

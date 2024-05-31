@@ -5,17 +5,25 @@ const heroContainer = {
     scale: 1,
     transition: {
       delayChildren: 0.3,
-      staggerChildren: 0.2,
+      staggerChildren: 0.25,
       duration: 0.75,
     },
   },
 };
 
-const delayChildren = {
+const heroItem = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
+const trainerContainer = {
   visible: {
     transition: {
       delayChildren: 0.3,
-      staggerChildren: 0.2,
+      staggerChildren: 0.25,
       duration: 0.75,
     },
   },
@@ -29,26 +37,6 @@ const trainerItem = {
   },
 };
 
-const heroItem = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
-
-const aboutImage = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      type: 'tween',
-      duration: 0.5,
-      // ease: [0.25, 0.25, 0.25, 0.75],
-    },
-  },
-};
-
 const buttonHover = {
   show: {
     y: 0,
@@ -59,7 +47,6 @@ const buttonHover = {
     transition: {
       type: 'tween',
       duration: 0.45,
-      // ease: [0.25, 0.25, 0.25, 0.75],
     },
   },
 };
@@ -76,10 +63,9 @@ const fadeIn = (direction: string, delay: number) => {
       x: 0,
       opacity: 1,
       transition: {
-        type: 'tween',
+        type: 'spring',
         duration: 0.75,
         delay: delay,
-        // ease: [0.25, 0.25, 0.25, 0.75],
       },
     },
   };
@@ -88,9 +74,8 @@ const fadeIn = (direction: string, delay: number) => {
 export {
   heroContainer,
   heroItem,
-  aboutImage,
-  fadeIn,
   buttonHover,
-  delayChildren,
+  trainerContainer,
   trainerItem,
+  fadeIn,
 };

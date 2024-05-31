@@ -1,14 +1,10 @@
 'use client';
 import { useFetchNews } from '@/utils/getNews';
-import { BlogCard, BlogCardProps } from './blog-card';
+import { BlogCard } from './blog-card';
 import { Header } from './header';
 import { AnimatePresence, motion } from 'framer-motion';
-import {
-  heroContainer,
-  heroItem,
-  trainerItem,
-} from '@/utils/animations';
-import { useEffect, useState } from 'react';
+import { trainerContainer, trainerItem } from '@/utils/animations';
+import { useState } from 'react';
 import { BlogCardDetails } from './blog-card-details';
 
 // carousel
@@ -24,22 +20,8 @@ export const Blog = () => {
   const { projects } = useFetchNews();
   const [selectedId, setSelectedId] = useState<any | null>(null);
 
-  useEffect(() => {
-    if (!!selectedId) {
-      document.body.classList.add('no-scroll');
-    } else {
-      document.body.classList.remove('no-scroll');
-    }
-
-    // Cleanup function to remove the class when component unmounts
-    return () => {
-      document.body.classList.remove('no-scroll');
-    };
-  }, [selectedId]);
-
   return (
     <section className='pt-16 sm:pt-32 relative' id='novosti'>
-      {/* mt-16 sm:mt-32 py-16 bg-slate-100 */}
       <Header
         title='Novosti iz kluba'
         description='Pogledajte najnovije informacije iz kluba i saznajte više o
@@ -47,22 +29,18 @@ export const Blog = () => {
         isRightSide
       />
       <motion.div
-        variants={heroContainer}
+        variants={trainerContainer}
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true }}
         className='max-w-screen-xl mx-auto px-4 md:px-8 flex justify-center'
       >
-        <Carousel className='w-full max-w-sm mt-8 md:mt-16'>
-          {/* <ul className='grid gap-x-8 gap-y-10 mt-8 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3'> */}
-          <CarouselContent>
+        <Carousel className='w-full max-w-xs lg:max-w-4xl xl:max-w-5xl mt-8 md:mt-16'>
+          <CarouselContent className='-ml-2'>
             {projects &&
               projects.map((item: any) => {
                 return (
-                  <CarouselItem
-                    key={item.title}
-                    className='lg:basis-1/2'
-                  >
+                  <CarouselItem key={item.title} className='lg:basis-1/3 pl-4'>
                     <motion.li
                       variants={trainerItem}
                       className='list-none'
@@ -82,7 +60,6 @@ export const Blog = () => {
           </CarouselContent>
           <CarouselPrevious />
           <CarouselNext />
-          {/* </ul> */}
           <AnimatePresence>
             {selectedId?.title && (
               <motion.button onClick={() => setSelectedId(null)}>

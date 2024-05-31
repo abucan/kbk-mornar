@@ -27,7 +27,7 @@ export const Footer = () => {
           </p>
         </motion.div>
         <motion.ul
-          variants={fadeIn('up', 0.25)}
+          variants={fadeIn('up', 0.35)}
           initial='hidden'
           whileInView={'show'}
           viewport={{ once: true }}
@@ -41,7 +41,7 @@ export const Footer = () => {
         </motion.ul>
         <div className='mt-8 items-center justify-between sm:flex'>
           <motion.div
-            variants={fadeIn('right', 0.25)}
+            variants={fadeIn('right', 0.35)}
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: true }}
@@ -51,7 +51,7 @@ export const Footer = () => {
             rights reserved.
           </motion.div>
           <motion.div
-            variants={fadeIn('left', 0.25)}
+            variants={fadeIn('left', 0.35)}
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: true }}

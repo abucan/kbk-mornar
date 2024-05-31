@@ -8,15 +8,13 @@ interface LogoProps {
   isFooter?: boolean;
 }
 
-export const Logo = ({
-  width = 100,
-  isFooter = false,
-}: LogoProps) => {
+export const Logo = ({ width = 100, isFooter = false }: LogoProps) => {
   return (
     <a
       className={cn(
-        'flex flex-row gap-4 w-full justify-center sm:justify-start',
+        'flex flex-row gap-4 w-full justify-center',
         isFooter && 'justify-center',
+        !isFooter && 'sm:justify-start'
       )}
     >
       <Image

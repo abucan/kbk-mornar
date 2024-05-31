@@ -6,7 +6,7 @@ import { TrainerItem, TrainerItemProps } from './trainer-item';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
-import { delayChildren, trainerItem } from '@/utils/animations';
+import { trainerContainer, trainerItem } from '@/utils/animations';
 
 export const Trainers = () => {
   const [selectedId, setSelectedId] = useState<TrainerItemProps | null>(null);
@@ -19,7 +19,7 @@ export const Trainers = () => {
       <div className='max-w-screen-xl mx-auto px-4 md:px-8'>
         <div className='mt-8 sm:mt-16'>
           <motion.ul
-            variants={delayChildren}
+            variants={trainerContainer}
             initial='hidden'
             whileInView='visible'
             viewport={{ once: true }}

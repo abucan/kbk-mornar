@@ -26,7 +26,7 @@ export const Contact = () => {
       <div className='max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8'>
         <div className='max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none space-y-4 lg:space-y-0'>
           <motion.div
-            variants={fadeIn('right', 0.25)}
+            variants={fadeIn('right', 0.35)}
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: true }}
@@ -59,13 +59,13 @@ export const Contact = () => {
             ></iframe>
           </motion.div>
           <motion.div
-            variants={fadeIn('left', 0.25)}
+            variants={fadeIn('left', 0.35)}
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: true }}
             className='flex-1 sm:max-w-lg lg:max-w-md grid place-items-center'
           >
-            <Card className='p-8 w-full lg:w-[450px] rounded-none shadow-md'>
+            <Card className='p-8 w-full lg:w-[450px] rounded-md shadow-md'>
               <SendEmailForm />
             </Card>
           </motion.div>
