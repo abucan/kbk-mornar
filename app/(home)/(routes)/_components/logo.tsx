@@ -16,6 +16,7 @@ export const Logo = ({ width = 100, isFooter = false }: LogoProps) => {
         isFooter && 'justify-center',
         !isFooter && 'sm:justify-start'
       )}
+      href='/'
     >
       <Image
         src={logo}

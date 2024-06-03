@@ -1,5 +1,5 @@
 'use client';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 interface StepsProps {
   steps: {
@@ -14,9 +14,9 @@ interface StepsProps {
   >;
 }
 
-export const Steps = ({ steps, setStep }: StepsProps) => {
+export const Steps = ({ steps }: StepsProps) => {
   return (
-    <div className='max-w-2xl mx-auto px-4 md:px-0'>
+    <div className='max-w-4xl mx-auto px-4 md:px-0'>
       <ul
         aria-label='Steps'
         className='items-center text-gray-600 font-medium md:flex'

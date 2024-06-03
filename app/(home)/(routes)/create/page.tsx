@@ -15,7 +15,7 @@ const CreateNewsPage = () => {
   const [imgPreview, setImgPreview] = useState('');
 
   return (
-    <div className='flex flex-col items-center justify-center w-full bg-slate-100 py-16 space-y-12'>
+    <div className='flex flex-col items-center w-full h-screen bg-slate-100 py-16 space-y-12'>
       <Header title='Nova obavijest' description='Kreiraj novu obavijest!' />
       <Steps steps={steps} setStep={setStep} />
       {steps.currentStep === 1 && (

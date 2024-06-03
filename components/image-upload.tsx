@@ -1,8 +1,10 @@
 import { storage } from '@/appwrite/config';
+import { cn } from '@/lib/utils';
 import { ID } from 'appwrite';
 import { UploadCloud } from 'lucide-react';
 import { Dispatch, SetStateAction, useState } from 'react';
 import ImageUploading, { ImageListType } from 'react-images-uploading';
+import { Button } from './ui/button';
 
 interface ImageUploadProps {
   image?: string;
@@ -32,7 +34,6 @@ export const ImageUpload = ({
       imageList[0].file as File
     );
     setImage(response.$id);
-    setStep((prev) => ({ ...prev, currentStep: 2 }));
     setImages(imageList as never[]);
     setImgPreview(imageList[0]?.dataURL as string);
   };
@@ -40,7 +41,7 @@ export const ImageUpload = ({
   return (
     <div className='App'>
       <ImageUploading
-        multiple={false}
+        multiple
         value={images}
         onChange={onChange}
         maxNumber={maxNumber}
@@ -48,13 +49,16 @@ export const ImageUpload = ({
         {({
           imageList,
           onImageUpload,
-          onImageRemoveAll,
           onImageUpdate,
-          onImageRemove,
           isDragging,
           dragProps,
         }) => (
-          <div className='max-w-md h-40 rounded-lg border-2 border-dashed flex items-center justify-center'>
+          <div
+            className={cn(
+              'max-w-md h-40 rounded-lg border-2 border-dashed flex items-center justify-center',
+              image && 'border-none'
+            )}
+          >
             {!image && (
               <button
                 className='cursor-pointer text-center p-4 md:p-8'
@@ -73,11 +77,32 @@ export const ImageUpload = ({
               </button>
             )}
             {imageList.map((image, index) => (
-              <div key={index} className='image-item'>
-                <img src={image.dataURL} alt='' width='100' />
-                <div className='image-item__btn-wrapper'>
-                  <button onClick={() => onImageUpdate(index)}>Update</button>
-                  <button onClick={() => onImageRemove(index)}>Remove</button>
+              <div
+                key={index}
+                className='flex flex-col space-y-4 items-center justify-center mt-16'
+              >
+                <img
+                  src={image.dataURL}
+                  alt=''
+                  className='w-full max-w-md h-60'
+                />
+                <div className='flex flex-row space-x-4 w-full'>
+                  <Button
+                    onClick={() => onImageUpdate(index)}
+                    variant={'destructive'}
+                    className='w-full'
+                  >
+                    Promjeni sliku
+                  </Button>
+                  <Button
+                    className='w-full'
+                    onClick={() =>
+                      setStep((prev) => ({ ...prev, currentStep: 2 }))
+                    }
+                    variant={'outline'}
+                  >
+                    Nastavi
+                  </Button>
                 </div>
               </div>
             ))}

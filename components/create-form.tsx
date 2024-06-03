@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { Form } from './ui/form';
 import { Button } from './ui/button';
 import { CustomFormField } from './form-field';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -58,7 +58,7 @@ export const CreateForm = ({
   return (
     <div className='flex flex-col space-y-4'>
       <img
-        className='object-contain max-w-sm w-full rounded-lg'
+        className='object-contain max-w-sm w-full h-80 rounded-lg'
         src={imgPreview}
       />
       <Form {...form}>
