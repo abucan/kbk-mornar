@@ -1,5 +1,4 @@
 'use client';
-import { useFetchNews } from '@/utils/getNews';
 import { BlogCard } from './blog-card';
 import { Header } from './header';
 import { motion } from 'framer-motion';
@@ -14,10 +13,12 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { BlogAnimated } from './blog-animated';
+import { usePosts } from '@/actions/get-posts';
 
 export const Blog = () => {
-  const { projects } = useFetchNews();
   const [selectedId, setSelectedId] = useState<any | null>(null);
+
+  const { posts } = usePosts();
 
   return (
     <section className='pt-16 sm:pt-32 relative' id='novosti'>
@@ -36,10 +37,10 @@ export const Blog = () => {
       >
         <Carousel className='w-full max-w-xs lg:max-w-4xl xl:max-w-6xl mt-8 md:mt-16'>
           <CarouselContent className='-ml-2'>
-            {projects &&
-              projects.map((item: any) => {
+            {posts &&
+              posts.map((item: any, index: number) => {
                 return (
-                  <CarouselItem key={item.title} className='lg:basis-1/3 pl-4'>
+                  <CarouselItem key={index} className='lg:basis-1/3 pl-4'>
                     <motion.li
                       variants={trainerItem}
                       className='list-none'
@@ -49,8 +50,8 @@ export const Blog = () => {
                     >
                       <BlogCard
                         title={item.title}
-                        info={item.info}
-                        image={item.img}
+                        info={item.description}
+                        image={item.imageFile?.href}
                       />
                     </motion.li>
                   </CarouselItem>

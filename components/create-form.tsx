@@ -1,16 +1,13 @@
 'use client';
 
+import db from '@/appwrite/databases';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Form } from './ui/form';
 import { Button } from './ui/button';
 import { CustomFormField } from './form-field';
-import { ImageUploadFormField } from './image-upload-field';
-import { useState } from 'react';
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { imgDB, txtDB } from '@/firebase/config';
-import { addDoc, collection } from 'firebase/firestore';
+import { Dispatch, SetStateAction, useState } from 'react';
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -19,68 +16,77 @@ const formSchema = z.object({
   description: z.string().min(2, {
     message: 'Unesite opis.',
   }),
-  // image: z.string().min(2, {
-  //   message: 'Prenesite sliku.',
-  // }),
 });
 
-export const CreateForm = () => {
-  const [img, setImg] = useState('');
+interface CreateFormProps {
+  imgUrl: string;
+  imgPreview: string;
+  setStep: Dispatch<
+    SetStateAction<{
+      stepsItems: string[];
+      currentStep: number;
+    }>
+  >;
+}
 
+export const CreateForm = ({
+  imgUrl,
+  setStep,
+  imgPreview,
+}: CreateFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: 'Novi tekst',
-      description:
-        'lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum',
-      // image: z.any,
+      title: '',
+      description: '',
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // const valRef = collection(txtDB, 'news');
-    // await addDoc(valRef, { values });
-    console.log(values);
+    try {
+      const payload = { ...values, imageUrl: imgUrl };
+      const response = await db.tasks.create(payload);
+
+      if (response) {
+        setStep((prev) => ({ ...prev, currentStep: 3 }));
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  const handleUpload = (e: any) => {
-    const file = e.target.files[0];
-
-    const imgs = ref(imgDB, `images/${file.name}`);
-    uploadBytes(imgs, file).then((data) => {
-      getDownloadURL(data.ref).then((val) => {
-        console.log(val);
-        // form.setValue('image', val);
-        setImg(val);
-      });
-    });
-  };
-
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
-        <CustomFormField
-          name='title'
-          label='Naslov teksta'
-          placeholder='Unesite naslov teksta'
-        />
-        <CustomFormField
-          name='description'
-          label='Opis'
-          placeholder='Unesite opis'
-          isTextArea
-        />
-        <ImageUploadFormField
-          name='image'
-          placeholder='Stavite sliku'
-          label='Slika'
-          handleUpload={handleUpload}
-          value={img}
-        />
-        <Button type='submit' className='w-full' variant='outline'>
-          Spremi
-        </Button>
-      </form>
-    </Form>
+    <div className='flex flex-col space-y-4'>
+      <img
+        className='object-contain max-w-sm w-full rounded-lg'
+        src={imgPreview}
+      />
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className='space-y-4 w-[300px]'
+        >
+          <CustomFormField
+            name='title'
+            label='Naslov teksta'
+            placeholder='Unesite naslov teksta'
+          />
+          <CustomFormField
+            name='description'
+            label='Opis'
+            placeholder='Unesite opis'
+            isTextArea
+          />
+          <Button
+            type='submit'
+            className='w-full'
+            variant='outline'
+            disabled={!imgUrl}
+          >
+            Spremi
+          </Button>
+        </form>
+      </Form>
+    </div>
   );
 };

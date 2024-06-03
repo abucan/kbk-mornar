@@ -30,8 +30,8 @@ export const BlogAnimated = ({
             >
               <BlogCardDetails
                 title={selectedId.title}
-                info={selectedId.info}
-                image={selectedId.img}
+                info={selectedId.description}
+                image={selectedId.imageFile?.href}
               />
             </motion.div>
           </motion.div>
