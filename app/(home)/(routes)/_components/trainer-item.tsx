@@ -19,7 +19,7 @@ export const TrainerItem = ({
     <li
       className={cn(
         'list-none w-full relative',
-        isDialog && 'flex flex-row items-center justify-center'
+        isDialog && 'flex flex-row items-center justify-center',
       )}
     >
       {!isDialog && (
@@ -27,7 +27,7 @@ export const TrainerItem = ({
           <img
             src={avatar}
             className={cn(
-              'w-full h-full object-cover object-center shadow-md rounded-md'
+              'w-full h-full object-cover object-center shadow-md rounded-md',
             )}
             alt=''
           />
@@ -38,7 +38,9 @@ export const TrainerItem = ({
           {name}
         </h4>
         <p className='text-indigo-600 text-left'>{title}</p>
-        <p className='text-gray-600 mt-2 text-left w-full'>{desc && desc}</p>
+        <p className='text-gray-600 mt-2 text-left w-full'>
+          {desc && desc}
+        </p>
       </div>
     </li>
   );

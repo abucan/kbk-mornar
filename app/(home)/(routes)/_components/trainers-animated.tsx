@@ -20,13 +20,13 @@ export const AnimatedTrainers = ({
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
             layoutId={selectedId.title}
-            className='w-[100vw] h-[100vh] fixed top-0 left-0 flex items-center justify-center z-50 bg-black/80 p-12 sm:p-0'
+            className='w-[100vw] h-[100vh] fixed top-0 left-0 flex items-center justify-center z-50 bg-black/80 sm:p-0'
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 }}
-              className='bg-white p-4 rounded-md shadow-lg top-0 left-0 right-0 w-full h-full relative'
+              className='bg-white/85 p-4 rounded-md shadow-lg w-full h-full relative lg:max-w-2xl lg:h-auto'
             >
               <TrainerItem
                 avatar={selectedId.avatar}
