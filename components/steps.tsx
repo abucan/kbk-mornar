@@ -23,8 +23,11 @@ export const Steps = ({ steps }: StepsProps) => {
       >
         {steps.stepsItems.map((item, idx) => (
           <li
-            aria-current={steps.currentStep == idx + 1 ? 'step' : false}
+            aria-current={
+              steps.currentStep == idx + 1 ? 'step' : false
+            }
             className='flex-1 last:flex-none flex gap-x-2 md:items-center'
+            key={idx}
           >
             <div className='flex items-center flex-col gap-x-2'>
               <div
@@ -79,7 +82,9 @@ export const Steps = ({ steps }: StepsProps) => {
             <div className='h-8 flex items-center md:h-auto'>
               <h3
                 className={`text-sm ${
-                  steps.currentStep == idx + 1 ? 'text-indigo-600' : ''
+                  steps.currentStep == idx + 1
+                    ? 'text-indigo-600'
+                    : ''
                 }`}
               >
                 {item}
