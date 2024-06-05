@@ -1,8 +1,8 @@
 'use client';
-import { navLinks } from '@/utils/nav-links';
-import { Logo } from './logo';
 import facebook from '@/public/facebook.svg';
 import instagram from '@/public/instagram.svg';
+import { navLinks } from '@/utils/nav-links';
+import { Logo } from './logo';
 import { Copyright } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/utils/animations';
@@ -11,8 +11,8 @@ import { FooterSocialButton } from './footer-social-button';
 
 export const Footer = () => {
   return (
-    <div className=''>
-      <div className='text-gray-500 bg-white px-4 py-16 max-w-screen-xl mx-auto md:px-8'>
+    <div className='py-16'>
+      <div className='text-gray-500 bg-white px-4 max-w-screen-xl mx-auto md:px-8'>
         <motion.div
           variants={fadeIn('up', 0)}
           initial='hidden'

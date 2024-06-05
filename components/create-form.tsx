@@ -55,6 +55,8 @@ export const CreateForm = ({
     }
   }
 
+  const { isDirty, isValid, isSubmitting } = form.formState;
+
   return (
     <div className='flex flex-col space-y-4'>
       <img
@@ -81,7 +83,7 @@ export const CreateForm = ({
             type='submit'
             className='w-full'
             variant='outline'
-            disabled={!imgUrl}
+            disabled={!imgUrl || !isDirty || !isValid || isSubmitting}
           >
             Spremi
           </Button>

@@ -39,7 +39,7 @@ export const ImageUpload = ({
   };
 
   return (
-    <div className='App'>
+    <div>
       <ImageUploading
         multiple
         value={images}
@@ -55,7 +55,7 @@ export const ImageUpload = ({
         }) => (
           <div
             className={cn(
-              'max-w-md h-40 rounded-lg border-2 border-dashed flex items-center justify-center',
+              'max-w-md rounded-lg border-2 border-dashed flex items-center justify-center',
               image && 'border-none'
             )}
           >
@@ -79,7 +79,7 @@ export const ImageUpload = ({
             {imageList.map((image, index) => (
               <div
                 key={index}
-                className='flex flex-col space-y-4 items-center justify-center mt-16'
+                className='flex flex-col space-y-4 items-center justify-center'
               >
                 <img
                   src={image.dataURL}

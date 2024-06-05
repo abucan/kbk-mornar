@@ -8,10 +8,10 @@ import { ABOUT_US_TEXT } from '@/utils/strings';
 export const AboutUs = () => {
   return (
     <section
-      className='relative mt-0 sm:mt-20 bg-[#F1F5F9]'
+      className='py-8 sm:py-16 relative mt-0 sm:mt-20 bg-[#F1F5F9]'
       id='onama'
     >
-      <div className='py-8 sm:py-16'>
+      <div>
         <div className='max-w-screen-xl mx-auto md:px-8'>
           <div className='items-center gap-x-12 sm:px-4 md:px-0 lg:flex'>
             <motion.div
