@@ -39,14 +39,17 @@ export const Contact = () => {
               Pošaljite nam poruku!
             </p>
             <p>
-              Kontaktirajte nas u slučaju bilo kakvih pitanja. Ispunite formu i
-              pošaljite nam poruku. Odgovorit ćemo u najkraćem mogućem roku.
+              Kontaktirajte nas u slučaju bilo kakvih pitanja.
+              Ispunite formu i pošaljite nam poruku. Odgovorit ćemo u
+              najkraćem mogućem roku.
             </p>
             <div>
               <ul className='mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center'>
                 {contactMethods.map((item, idx) => (
                   <li key={idx} className='flex items-center gap-x-3'>
-                    <div className='flex-none text-gray-400'>{item.icon}</div>
+                    <div className='flex-none text-gray-400'>
+                      {item.icon}
+                    </div>
                     <p>{item.contact}</p>
                   </li>
                 ))}
@@ -65,7 +68,7 @@ export const Contact = () => {
             viewport={{ once: true }}
             className='flex-1 sm:max-w-lg lg:max-w-md grid place-items-center'
           >
-            <Card className='p-8 w-full lg:w-[450px] rounded-md shadow-md'>
+            <Card className='p-8 w-full lg:w-[450px] rounded-md shadow-none'>
               <SendEmailForm />
             </Card>
           </motion.div>

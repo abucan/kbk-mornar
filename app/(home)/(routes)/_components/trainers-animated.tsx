@@ -26,7 +26,7 @@ export const AnimatedTrainers = ({
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 }}
-              className='bg-white/85 p-4 rounded-md shadow-lg w-full h-full relative lg:max-w-2xl lg:h-auto'
+              className='bg-white p-4 shadow-lg w-full h-full relative lg:max-w-2xl lg:h-auto'
             >
               <TrainerItem
                 avatar={selectedId.avatar}

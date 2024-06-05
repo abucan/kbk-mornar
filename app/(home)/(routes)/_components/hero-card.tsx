@@ -16,8 +16,16 @@ export const HeroCard = () => {
       {heroItems.map((item, _) => {
         const Icon = item.image;
         return (
-          <motion.li key={item.title} variants={heroItem} className='list-none'>
-            <HeroCardItem title={item.title} image={Icon} key={item.title} />
+          <motion.li
+            key={item.title}
+            variants={heroItem}
+            className='list-none'
+          >
+            <HeroCardItem
+              title={item.title}
+              image={Icon}
+              key={item.title}
+            />
           </motion.li>
         );
       })}

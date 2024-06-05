@@ -26,7 +26,7 @@ export const BlogAnimated = ({
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 }}
-              className='rounded-md shadow-lg w-full h-full relative lg:max-w-4xl lg:h-auto'
+              className='shadow-lg w-full h-full relative lg:max-w-4xl lg:h-auto'
             >
               <BlogCardDetails
                 title={selectedId.title}

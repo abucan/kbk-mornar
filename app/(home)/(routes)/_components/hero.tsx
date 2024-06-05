@@ -17,7 +17,7 @@ export const Hero = () => {
           quality={100}
         />
       </div>
-      <div className='absolute right-1/2 transform translate-x-1/2 translate-y-1/4 sm:translate-y-0 sm:-bottom-12'>
+      <div className='absolute right-1/2 transform translate-x-1/2 translate-y-1/2 sm:translate-y-0 sm:-bottom-12'>
         <HeroCard />
       </div>
       <div className='-z-10 absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]'></div>
