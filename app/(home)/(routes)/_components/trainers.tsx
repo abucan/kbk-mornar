@@ -24,7 +24,7 @@ export const Trainers = () => {
             initial='hidden'
             whileInView='visible'
             viewport={{ once: true }}
-            className='grid gap-8 sm:grid-cols-2 md:grid-cols-3'
+            className='flex gap-4 p-4'
           >
             {trainers.map((item, idx) => (
               <motion.div

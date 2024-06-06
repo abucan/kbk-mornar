@@ -118,3 +118,7 @@ body {
 .layer1 {
   background-image: url('../public/blobo1.svg');
 }
+
+.custom-spacing {
+  width: calc((100% / 3) - 0.25rem);
+}

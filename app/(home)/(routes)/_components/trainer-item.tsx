@@ -19,16 +19,16 @@ export const TrainerItem = ({
   return (
     <li
       className={cn(
-        'list-none w-full relative',
-        isDialog && 'flex flex-row items-center justify-center',
+        'list-none relative',
+        isDialog && 'flex flex-row items-center justify-center'
       )}
     >
       {!isDialog && (
-        <div className={cn('w-full h-72 relative')}>
+        <div className={cn('text-center custom-spacing')}>
           <img
             src={avatar}
             className={cn(
-              'w-full h-full object-cover object-center shadow-md rounded-md',
+              'aspect-square object-cover w-full shadow-md rounded-md'
             )}
             alt=''
           />
@@ -39,9 +39,7 @@ export const TrainerItem = ({
           {name}
         </h4>
         <p className='text-indigo-600 text-left'>{title}</p>
-        <p className='text-gray-600 mt-2 text-left w-full'>
-          {desc && desc}
-        </p>
+        <p className='text-gray-600 mt-2 text-left w-full'>{desc && desc}</p>
       </div>
     </li>
   );
