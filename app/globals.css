@@ -120,5 +120,5 @@ body {
 }
 
 .custom-spacing {
-  width: calc((100% / 3) - 0.25rem);
+  /* width: calc((100% / 1.25) - 0.01rem); */
 }

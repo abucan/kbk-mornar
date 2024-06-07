@@ -14,7 +14,7 @@ export const BlogCard = ({ image, title, info }: BlogCardProps) => {
           src={image}
           loading='lazy'
           alt={title}
-          className='w-full h-72 aspect-auto rounded-t-md'
+          className='aspect-square object-cover shadow-md rounded-t-md'
         />
         <div className='pt-3 ml-4 mr-2 mb-3 flex flex-col gap-2'>
           <h3 className='text-xl text-gray-800 font-semibold line-clamp-1 capitalize'>

@@ -40,7 +40,7 @@ export const Blog = () => {
             {posts &&
               posts.map((item: any, index: number) => {
                 return (
-                  <CarouselItem key={index} className='lg:basis-1/3 pl-4'>
+                  <CarouselItem key={index} className='lg:basis-1/3 pl-8'>
                     <motion.li
                       variants={trainerItem}
                       className='list-none'

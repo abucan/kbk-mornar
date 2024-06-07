@@ -19,7 +19,7 @@ export const TrainerItem = ({
   return (
     <li
       className={cn(
-        'list-none relative',
+        'list-none',
         isDialog && 'flex flex-row items-center justify-center'
       )}
     >
