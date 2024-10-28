@@ -77,7 +77,7 @@ export function BlogExpandableCard({ cards }: { cards: BlogCardProps[] }) {
                   priority
                   width={800}
                   height={600}
-                  src={active.imageFile}
+                  src={active.imageUrl}
                   alt={active.title}
                   className='w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top'
                 />
@@ -129,7 +129,7 @@ export function BlogExpandableCard({ cards }: { cards: BlogCardProps[] }) {
                 <Image
                   width={800}
                   height={600}
-                  src={card.imageFile}
+                  src={card.imageUrl}
                   alt={card.title}
                   className='h-60 w-full  rounded-lg object-cover object-top'
                 />

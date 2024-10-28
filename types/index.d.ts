@@ -47,6 +47,7 @@ interface CreateFormProps {
       currentStep: number;
     }>
   >;
+  imageFile: File;
 }
 
 interface BlogAnimatedProps {

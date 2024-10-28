@@ -1,14 +1,16 @@
 'use server';
 import { parseStringify } from '@/lib/utils';
-import db from '@/appwrite/databases';
+import { connectToDatabase } from '@/lib/db';
+import { writeFile } from 'fs/promises';
+import path from 'path';
 
-export const getPosts = async () => {
+export const getPostsFromDB = async () => {
+  const db2 = await connectToDatabase();
   try {
-    const response = await db.tasks.listFiles();
-    console.log(response);
-
-    return parseStringify(response);
+    const [rows] = await db2.query('SELECT * FROM posts');
+    return parseStringify(rows);
   } catch (error) {
     console.log(error);
+    throw new Error('Failed to fetch posts');
   }
 };

@@ -4,16 +4,16 @@ import { Blog } from '../_components/blog';
 import { Schedule } from '../_components/schedule';
 import { Contact } from '../_components/contact';
 import { Trainers } from '../_components/trainers';
-import { getPosts } from '@/actions/posts.actions';
+import { getPostsFromDB } from '@/actions/posts.actions';
 
 const RootPage = async () => {
-  const posts = await getPosts();
+  const postsFromDB = await getPostsFromDB();
   return (
     <>
       <Hero />
       <AboutUs />
       <Trainers />
-      <Blog posts={posts} />
+      <Blog posts={postsFromDB} />
       <Schedule />
       <Contact />
     </>
