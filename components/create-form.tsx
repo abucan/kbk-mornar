@@ -1,12 +1,13 @@
 'use client';
 
-import db from '@/appwrite/databases';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Form } from './ui/form';
 import { Button } from './ui/button';
 import { CustomFormField } from './form-field';
+import { createPost } from '@/actions/posts.actions';
+import Image from 'next/image';
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -17,11 +18,7 @@ const formSchema = z.object({
   }),
 });
 
-export const CreateForm = ({
-  imgUrl,
-  setStep,
-  imgPreview,
-}: CreateFormProps) => {
+export const CreateForm = ({ imgUrl, setStep }: CreateFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,9 +28,14 @@ export const CreateForm = ({
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!imgUrl) {
+      form.setError('description', { message: 'Slika je obavezna.' });
+      return;
+    }
+
     try {
-      const payload = { ...values, imageUrl: imgUrl };
-      const response = await db.tasks.create(payload);
+      const payload: CreatePostProps = { ...values, imageUrl: imgUrl };
+      const response = await createPost(payload);
 
       if (response) {
         setStep((prev: any) => ({ ...prev, currentStep: 3 }));
@@ -47,14 +49,17 @@ export const CreateForm = ({
 
   return (
     <div className='flex flex-col space-y-4'>
-      <img
+      <Image
+        width={800}
+        height={600}
+        alt='uploaded-image'
         className='object-contain max-w-sm w-full h-80 rounded-lg'
-        src={imgPreview}
+        src={imgUrl}
       />
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='space-y-4 w-[300px]'
+          className='space-y-4 w-full'
         >
           <CustomFormField
             name='title'

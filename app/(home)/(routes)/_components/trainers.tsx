@@ -1,10 +1,9 @@
 'use client';
-import { trainers } from '@/utils/trainers';
 import { Header } from './header';
 import { ShapeDivider } from './shape-divider';
 import { ExpandableTrainerCard } from '@/components/trainer-expandable-card';
 
-export const Trainers = () => {
+export const Trainers = ({ trainers }: { trainers: any }) => {
   return (
     <section className='pt-32 relative' id='treneri'>
       <Header

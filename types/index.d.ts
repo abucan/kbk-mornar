@@ -20,7 +20,6 @@ interface StepsProps {
 }
 
 interface ImageUploadProps {
-  image?: string;
   setImage: Dispatch<SetStateAction<string>>;
   setStep: Dispatch<
     SetStateAction<{
@@ -28,7 +27,6 @@ interface ImageUploadProps {
       currentStep: number;
     }>
   >;
-  setImgPreview: Dispatch<SetStateAction<string>>;
 }
 
 interface CustomFormFieldProps {
@@ -38,16 +36,20 @@ interface CustomFormFieldProps {
   isTextArea?: boolean;
 }
 
+interface CreatePostProps {
+  title: string;
+  description: string;
+  imageUrl: string;
+}
+
 interface CreateFormProps {
   imgUrl: string;
-  imgPreview: string;
   setStep: Dispatch<
     SetStateAction<{
       stepsItems: string[];
       currentStep: number;
     }>
   >;
-  imageFile: File;
 }
 
 interface BlogAnimatedProps {
