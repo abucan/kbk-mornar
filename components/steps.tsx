@@ -1,19 +1,4 @@
 'use client';
-import { Dispatch, SetStateAction } from 'react';
-
-interface StepsProps {
-  steps: {
-    stepsItems: string[];
-    currentStep: number;
-  };
-  setStep: Dispatch<
-    SetStateAction<{
-      stepsItems: string[];
-      currentStep: number;
-    }>
-  >;
-}
-
 export const Steps = ({ steps }: StepsProps) => {
   return (
     <div className='max-w-4xl mx-auto px-4 md:px-0'>
@@ -23,9 +8,7 @@ export const Steps = ({ steps }: StepsProps) => {
       >
         {steps.stepsItems.map((item, idx) => (
           <li
-            aria-current={
-              steps.currentStep == idx + 1 ? 'step' : false
-            }
+            aria-current={steps.currentStep == idx + 1 ? 'step' : false}
             className='flex-1 last:flex-none flex gap-x-2 md:items-center'
             key={idx}
           >
@@ -82,9 +65,7 @@ export const Steps = ({ steps }: StepsProps) => {
             <div className='h-8 flex items-center md:h-auto'>
               <h3
                 className={`text-sm ${
-                  steps.currentStep == idx + 1
-                    ? 'text-indigo-600'
-                    : ''
+                  steps.currentStep == idx + 1 ? 'text-indigo-600' : ''
                 }`}
               >
                 {item}

@@ -1,8 +1,3 @@
-interface HamMenuProps {
-  state: boolean;
-  setState: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 export const HamMenu = ({ setState, state }: HamMenuProps) => {
   return (
     <button

@@ -2,11 +2,6 @@ import Image from 'next/image';
 import sauna from '@/public/sauna.svg';
 import massage from '@/public/massage.svg';
 
-interface HeroCardItemProps {
-  title: string;
-  image: any;
-}
-
 export const HeroCardItem = ({ title, image }: HeroCardItemProps) => {
   const Icon = image;
   return (

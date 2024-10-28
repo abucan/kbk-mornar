@@ -1,15 +1,4 @@
-import {
-  Aperture,
-  Dumbbell,
-  LucideIcon,
-  Sun,
-  Trophy,
-} from 'lucide-react';
-
-interface HeroItem {
-  title: string;
-  image: LucideIcon;
-}
+import { Aperture, Dumbbell, Sun, Trophy } from 'lucide-react';
 
 export const heroItems: HeroItem[] = [
   {

@@ -5,17 +5,6 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 
-interface ScheduleItemProps {
-  day: {
-    dayOfWeek: string;
-    sessions: {
-      name: string;
-      trainer: string;
-      time: string;
-    }[];
-  };
-}
-
 export const ScheduleItem = ({ day }: ScheduleItemProps) => {
   return (
     <Accordion

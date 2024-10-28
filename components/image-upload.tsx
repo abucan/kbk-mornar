@@ -2,21 +2,9 @@ import { storage } from '@/appwrite/config';
 import { cn } from '@/lib/utils';
 import { ID } from 'appwrite';
 import { UploadCloud } from 'lucide-react';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import ImageUploading, { ImageListType } from 'react-images-uploading';
 import { Button } from './ui/button';
-
-interface ImageUploadProps {
-  image?: string;
-  setImage: Dispatch<SetStateAction<string>>;
-  setStep: Dispatch<
-    SetStateAction<{
-      stepsItems: string[];
-      currentStep: number;
-    }>
-  >;
-  setImgPreview: Dispatch<SetStateAction<string>>;
-}
 
 export const ImageUpload = ({
   image,
@@ -97,7 +85,7 @@ export const ImageUpload = ({
                   <Button
                     className='w-full'
                     onClick={() =>
-                      setStep((prev) => ({ ...prev, currentStep: 2 }))
+                      setStep((prev: any) => ({ ...prev, currentStep: 2 }))
                     }
                     variant={'outline'}
                   >

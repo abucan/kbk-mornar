@@ -3,11 +3,6 @@ import logo from '@/public/logo.svg';
 import logo2 from '@/public/muay1.png';
 import { cn } from '@/lib/utils';
 
-interface LogoProps {
-  width?: number;
-  isFooter?: boolean;
-}
-
 export const Logo = ({ width = 100, isFooter = false }: LogoProps) => {
   return (
     <a

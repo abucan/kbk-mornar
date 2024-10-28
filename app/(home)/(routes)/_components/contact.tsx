@@ -1,26 +1,11 @@
 'use client';
+import { CONTACT_METHODS } from '@/utils/constants';
 import { SendEmailForm } from '@/components/send-email-form';
-import { Mail, MapPin, Phone } from 'lucide-react';
-import { Card } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/utils/animations';
+import { Card } from '@/components/ui/card';
 
 export const Contact = () => {
-  const contactMethods = [
-    {
-      icon: <Mail />,
-      contact: 'dariojurisic@kbk-mornar.hr',
-    },
-    {
-      icon: <Phone />,
-      contact: '091 540 1195',
-    },
-    {
-      icon: <MapPin />,
-      contact: 'Poljud, Split, Hrvatska',
-    },
-  ];
-
   return (
     <main className='mt-16 sm:mt-32 py-16 bg-slate-100' id='kontakt'>
       <div className='max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8'>
@@ -39,20 +24,20 @@ export const Contact = () => {
               Pošaljite nam poruku!
             </p>
             <p>
-              Kontaktirajte nas u slučaju bilo kakvih pitanja.
-              Ispunite formu i pošaljite nam poruku. Odgovorit ćemo u
-              najkraćem mogućem roku.
+              Kontaktirajte nas u slučaju bilo kakvih pitanja. Ispunite formu i
+              pošaljite nam poruku. Odgovorit ćemo u najkraćem mogućem roku.
             </p>
             <div>
               <ul className='mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center'>
-                {contactMethods.map((item, idx) => (
-                  <li key={idx} className='flex items-center gap-x-3'>
-                    <div className='flex-none text-gray-400'>
-                      {item.icon}
-                    </div>
-                    <p>{item.contact}</p>
-                  </li>
-                ))}
+                {CONTACT_METHODS.map((item, idx) => {
+                  const Icon = item.icon;
+                  return (
+                    <li key={idx} className='flex items-center gap-x-3'>
+                      <Icon />
+                      <p>{item.contact}</p>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <iframe

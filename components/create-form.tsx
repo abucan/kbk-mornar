@@ -7,7 +7,6 @@ import { z } from 'zod';
 import { Form } from './ui/form';
 import { Button } from './ui/button';
 import { CustomFormField } from './form-field';
-import { Dispatch, SetStateAction } from 'react';
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -17,17 +16,6 @@ const formSchema = z.object({
     message: 'Unesite opis.',
   }),
 });
-
-interface CreateFormProps {
-  imgUrl: string;
-  imgPreview: string;
-  setStep: Dispatch<
-    SetStateAction<{
-      stepsItems: string[];
-      currentStep: number;
-    }>
-  >;
-}
 
 export const CreateForm = ({
   imgUrl,
@@ -48,7 +36,7 @@ export const CreateForm = ({
       const response = await db.tasks.create(payload);
 
       if (response) {
-        setStep((prev) => ({ ...prev, currentStep: 3 }));
+        setStep((prev: any) => ({ ...prev, currentStep: 3 }));
       }
     } catch (error) {
       console.log(error);

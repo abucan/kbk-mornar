@@ -9,13 +9,6 @@ import {
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 
-interface CustomFormFieldProps {
-  name: string;
-  placeholder: string;
-  label: string;
-  isTextArea?: boolean;
-}
-
 export const CustomFormField = ({
   name,
   label,

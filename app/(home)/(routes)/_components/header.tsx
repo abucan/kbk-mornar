@@ -2,12 +2,6 @@
 import { fadeIn } from '@/utils/animations';
 import { motion } from 'framer-motion';
 
-interface HeaderProps {
-  title: string;
-  description: string;
-  isRightSide?: boolean;
-}
-
 export const Header = ({
   title,
   description,
