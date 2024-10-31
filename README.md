@@ -1,1 +1,1 @@
-// KBK Mornar
+![Logo](public/logo.svg)
