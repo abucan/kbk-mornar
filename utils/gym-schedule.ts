@@ -1,4 +1,4 @@
-export const gymSchedule = [
+export const GYM_SCHEDULE = [
   {
     dayOfWeek: 'Ponedjeljak',
     sessions: [

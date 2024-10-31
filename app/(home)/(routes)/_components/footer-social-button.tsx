@@ -1,7 +1,7 @@
-import { buttonHover } from '@/utils/animations';
-import { motion } from 'framer-motion';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { buttonHover } from '@/utils/animations';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 export const FooterSocialButton = ({
   src,

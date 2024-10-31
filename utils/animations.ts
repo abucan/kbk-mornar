@@ -19,7 +19,7 @@ const heroItem = {
   },
 };
 
-const trainerContainer = {
+const sectionContainer = {
   visible: {
     transition: {
       delayChildren: 0.3,
@@ -29,7 +29,7 @@ const trainerContainer = {
   },
 };
 
-const trainerItem = {
+const sectionItem = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
@@ -72,10 +72,10 @@ const fadeIn = (direction: string, delay: number) => {
 };
 
 export {
+  sectionContainer,
+  sectionItem,
   heroContainer,
   heroItem,
   buttonHover,
-  trainerContainer,
-  trainerItem,
   fadeIn,
 };

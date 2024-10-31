@@ -1,13 +1,13 @@
 'use client';
-import { CONTACT_METHODS } from '@/utils/constants';
-import { SendEmailForm } from '@/components/send-email-form';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/utils/animations';
 import { Card } from '@/components/ui/card';
+import { CONTACT_METHODS } from '@/utils/constants';
+import { SendEmailForm } from '@/components/send-email-form';
 
 export const Contact = () => {
   return (
-    <main className='mt-16 sm:mt-32 py-16 bg-slate-100' id='kontakt'>
+    <main className='mt-16 sm:mt-32 py-16 bg-slate-100' id='contact'>
       <div className='max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8'>
         <div className='max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none space-y-4 lg:space-y-0'>
           <motion.div

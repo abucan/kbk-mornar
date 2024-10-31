@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
 import bg_1 from '@/public/bg_1.png';
-
 import { HeroCard } from './hero-card';
 
 export const Hero = () => {

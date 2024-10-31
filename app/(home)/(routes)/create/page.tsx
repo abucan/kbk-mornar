@@ -1,17 +1,17 @@
 'use client';
-import { CreateForm } from '@/components/create-form';
-import { Header } from '../_components/header';
-import { Steps } from '@/components/steps';
 import { useState } from 'react';
-import { ImageUpload } from '@/components/image-upload';
 import { CircleCheck } from 'lucide-react';
+import { Steps } from '@/components/steps';
+import { Header } from '../_components/header';
+import { CreateForm } from '@/components/create-form';
+import { ImageUpload } from '@/components/image-upload';
 
 const CreateNewsPage = () => {
+  const [img, setImg] = useState('');
   const [steps, setStep] = useState({
     stepsItems: ['Izaberite sliku', 'Naslov & Opis', 'Pregled'],
     currentStep: 1,
   });
-  const [img, setImg] = useState('');
 
   return (
     <div className='flex flex-col items-center w-full bg-slate-100 py-8 space-y-12'>

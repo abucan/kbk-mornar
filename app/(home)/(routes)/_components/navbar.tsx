@@ -1,9 +1,9 @@
 'use client';
-import { useState } from 'react';
-import { NavItem } from './nav-item';
-import { HamMenu } from './ham-menu';
-import { navLinks } from '@/utils/nav-links';
 import { Logo } from './logo';
+import { useState } from 'react';
+import { HamMenu } from './ham-menu';
+import { NavItem } from './nav-item';
+import { NAV_LINKS } from '@/utils/nav-links';
 
 export const Navbar = () => {
   const [state, setState] = useState(false);
@@ -23,7 +23,7 @@ export const Navbar = () => {
           }`}
         >
           <ul className='justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0'>
-            {navLinks.map((item, idx) => {
+            {NAV_LINKS.map((item, idx) => {
               return (
                 <NavItem
                   key={idx}

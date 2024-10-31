@@ -1,13 +1,13 @@
 'use client';
+import { Logo } from './logo';
+import { motion } from 'framer-motion';
+import { Copyright } from 'lucide-react';
+import { fadeIn } from '@/utils/animations';
+import { NAV_LINKS } from '@/utils/nav-links';
 import facebook from '@/public/facebook.svg';
 import instagram from '@/public/instagram.svg';
-import { navLinks } from '@/utils/nav-links';
-import { Logo } from './logo';
-import { Copyright } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { fadeIn } from '@/utils/animations';
-import { FOOTER_COPYRIGHT, FOOTER_TEXT } from '@/utils/strings';
 import { FooterSocialButton } from './footer-social-button';
+import { FOOTER_COPYRIGHT, FOOTER_TEXT } from '@/utils/strings';
 
 export const Footer = () => {
   return (
@@ -30,7 +30,7 @@ export const Footer = () => {
           viewport={{ once: true }}
           className='items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0 text-center'
         >
-          {navLinks.map((item, idx) => (
+          {NAV_LINKS.map((item, idx) => (
             <li className=' hover:text-gray-800' key={idx}>
               <a href={item.path}>{item.title}</a>
             </li>

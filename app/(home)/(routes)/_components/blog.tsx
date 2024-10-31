@@ -4,7 +4,7 @@ import { BlogExpandableCard } from '@/components/blog-expandable-card';
 
 export const Blog = ({ posts }: { posts: any }) => {
   return (
-    <section className='pt-16 sm:pt-32 relative' id='novosti'>
+    <section className='pt-16 sm:pt-32 relative' id='blog'>
       <Header
         title='Novosti iz kluba'
         description='Pogledajte najnovije informacije iz kluba i saznajte više o

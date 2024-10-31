@@ -1,13 +1,12 @@
 'use client';
-
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import Image from 'next/image';
 import { Form } from './ui/form';
 import { Button } from './ui/button';
+import { useForm } from 'react-hook-form';
 import { CustomFormField } from './form-field';
 import { createPost } from '@/actions/posts.actions';
-import Image from 'next/image';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const formSchema = z.object({
   title: z.string().min(2, {

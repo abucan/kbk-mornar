@@ -1,9 +1,9 @@
 'use client';
-
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useOutsideClick } from '@/hooks/use-outside-click';
 import React, { useEffect, useId, useRef, useState } from 'react';
+import { sectionContainer, sectionItem } from '@/utils/animations';
 import { CloseIcon } from '@/app/(home)/(routes)/_components/close-icon';
 
 export function BlogExpandableCard({ cards }: { cards: BlogCardProps[] }) {
@@ -116,13 +116,20 @@ export function BlogExpandableCard({ cards }: { cards: BlogCardProps[] }) {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className='w-full mx-auto grid grid-cols-1 md:grid-cols-3 items-start gap-4'>
+      <motion.ul
+        variants={sectionContainer}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: true }}
+        className='w-full mx-auto grid grid-cols-1 md:grid-cols-3 items-start gap-4'
+      >
         {cards.map((card, index) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={card.title}
+            variants={sectionItem}
             onClick={() => setActive(card)}
-            className='p-4 flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer'
+            className='flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer'
           >
             <div className='flex gap-4 flex-col  w-full'>
               <motion.div layoutId={`image-${card.title}-${id}`}>
@@ -153,7 +160,7 @@ export function BlogExpandableCard({ cards }: { cards: BlogCardProps[] }) {
             </div>
           </motion.div>
         ))}
-      </ul>
+      </motion.ul>
     </>
   );
 }

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-
 export const CloseIcon = () => {
   return (
     <motion.svg

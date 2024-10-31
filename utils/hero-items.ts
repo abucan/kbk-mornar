@@ -1,6 +1,6 @@
 import { Aperture, Dumbbell, Sun, Trophy } from 'lucide-react';
 
-export const heroItems: HeroItem[] = [
+export const HERO_ITEMS: HeroItem[] = [
   {
     title: 'Teretana',
     image: Dumbbell,

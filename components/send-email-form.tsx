@@ -1,14 +1,13 @@
 'use client';
-
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Form, FormMessage } from './ui/form';
-import { Button } from './ui/button';
-import { CustomFormField } from './form-field';
-import emailjs from '@emailjs/browser';
 import { useState } from 'react';
+import { Button } from './ui/button';
+import emailjs from '@emailjs/browser';
+import { useForm } from 'react-hook-form';
 import { CircleCheck } from 'lucide-react';
+import { Form, FormMessage } from './ui/form';
+import { CustomFormField } from './form-field';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const formSchema = z.object({
   name: z.string().min(2, {

@@ -15,9 +15,14 @@ export const getPostsFromDB = async () => {
 
 export const createPost = async (payload: CreatePostProps) => {
   const db2 = await connectToDatabase();
-  const [rows] = await db2.query(
-    'INSERT INTO posts (title, description, imageUrl) VALUES (?, ?, ?)',
-    [payload.title, payload.description, payload.imageUrl]
-  );
-  return parseStringify(rows);
+  try {
+    const [rows] = await db2.query(
+      'INSERT INTO posts (title, description, imageUrl) VALUES (?, ?, ?)',
+      [payload.title, payload.description, payload.imageUrl]
+    );
+    return parseStringify(rows);
+  } catch (error) {
+    console.log(error);
+    throw new Error('Failed to create post');
+  }
 };

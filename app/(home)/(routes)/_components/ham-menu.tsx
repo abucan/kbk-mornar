@@ -1,3 +1,4 @@
+'use client';
 export const HamMenu = ({ setState, state }: HamMenuProps) => {
   return (
     <button

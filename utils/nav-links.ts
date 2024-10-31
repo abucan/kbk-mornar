@@ -1,7 +1,7 @@
-export const navLinks = [
-  { title: 'O nama', path: '#onama' },
-  { title: 'Treneri', path: '#treneri' },
-  { title: 'Novosti', path: '#novosti' },
-  { title: 'Raspored', path: '#raspored' },
-  { title: 'Kontakt', path: '#kontakt' },
+export const NAV_LINKS = [
+  { title: 'O nama', path: '/#about-us' },
+  { title: 'Treneri', path: '/#trainers' },
+  { title: 'Novosti', path: '/blog' },
+  { title: 'Raspored', path: '/#schedule' },
+  { title: 'Kontakt', path: '/#contact' },
 ];

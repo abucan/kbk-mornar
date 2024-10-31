@@ -119,11 +119,6 @@ body {
   background-image: url('../public/blobo1.svg');
 }
 
-.custom-spacing {
-  /* width: calc((100% / 1.25) - 0.01rem); */
-}
-
-/* Custom scrollbar styles */
 .scrollbar-thin::-webkit-scrollbar {
   width: 6px;
 }

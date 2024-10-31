@@ -1,15 +1,15 @@
 'use client';
 import Image from 'next/image';
-import kbkintro from '@/public/kbkintro.jpeg';
-import { fadeIn } from '@/utils/animations';
 import { motion } from 'framer-motion';
+import { fadeIn } from '@/utils/animations';
+import kbkintro from '@/public/kbkintro.jpeg';
 import { ABOUT_US_TEXT } from '@/utils/strings';
 
 export const AboutUs = () => {
   return (
     <section
       className='py-8 sm:py-16 relative mt-0 sm:mt-20 bg-[#F1F5F9]'
-      id='onama'
+      id='aboutus'
     >
       <div>
         <div className='max-w-screen-xl mx-auto md:px-8'>

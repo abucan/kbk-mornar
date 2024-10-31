@@ -1,7 +1,7 @@
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 import logo from '@/public/logo.svg';
 import logo2 from '@/public/muay1.png';
-import { cn } from '@/lib/utils';
 
 export const Logo = ({ width = 100, isFooter = false }: LogoProps) => {
   return (
