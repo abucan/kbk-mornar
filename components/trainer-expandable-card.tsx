@@ -79,11 +79,11 @@ export function ExpandableTrainerCard({
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
                   priority
-                  width={800}
-                  height={600}
+                  width={1000}
+                  height={1000}
                   src={active.avatar}
                   alt={active.title}
-                  className='w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top'
+                  className='w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-center'
                 />
               </motion.div>
 
@@ -110,7 +110,7 @@ export function ExpandableTrainerCard({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className='text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]'
+                    className='max-h-[350px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent pr-2 text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]'
                   >
                     {typeof active.content === 'function'
                       ? active.content()
@@ -140,11 +140,11 @@ export function ExpandableTrainerCard({
             <div className='flex gap-4 flex-col  w-full'>
               <motion.div layoutId={`image-${card.title}-${id}`}>
                 <Image
-                  width={800}
-                  height={600}
+                  width={1000}
+                  height={1000}
                   src={card.avatar}
                   alt={card.title}
-                  className='h-60 w-full  rounded-lg object-cover object-top'
+                  className='h-60 w-full  rounded-lg object-cover object-center'
                 />
               </motion.div>
               <div className='flex justify-center items-center flex-col'>

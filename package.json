@@ -12,6 +12,7 @@
     "@emailjs/browser": "^4.3.3",
     "@hookform/resolvers": "^3.3.4",
     "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-separator": "^1.0.3",
@@ -29,6 +30,7 @@
     "mysql2": "^3.11.3",
     "next": "14.2.3",
     "react": "^18",
+    "react-collapse": "^5.1.1",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
     "react-images-uploading": "^3.1.7",
@@ -40,6 +42,7 @@
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
+    "@types/react-collapse": "^5.0.4",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",

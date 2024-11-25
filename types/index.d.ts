@@ -64,13 +64,10 @@ interface BlogCardDetailsProps {
 }
 
 interface BlogCardProps {
-  title: string;
-  description: string;
-  imageUrl: string;
-  imageFile: string;
-  $id: string;
-  $createdAt: string;
-  $updatedAt: string;
+  id: string;
+  message: string;
+  full_picture: string;
+  created_time: string;
 }
 
 interface HamMenuProps {
