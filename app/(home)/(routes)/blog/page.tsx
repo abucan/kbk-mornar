@@ -1,8 +1,13 @@
 import { Header } from '../_components/header';
 import { BlogExpandableCard } from '@/components/blog-expandable-card';
+import { headers } from 'next/headers';
 
 const BlogPage = async () => {
-  const result = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/fb`);
+  const host = headers().get('host');
+  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
+  const url = `${protocol}://${host}`;
+
+  const result = await fetch(`${url}/api/fb`);
   const posts = await result.json();
 
   return (

@@ -5,10 +5,15 @@ import { AboutUs } from '../_components/about-us';
 import { Schedule } from '../_components/schedule';
 import { Trainers } from '../_components/trainers';
 import { getTrainersFromDB } from '@/actions/trainers.actions';
+import { headers } from 'next/headers';
 
 const RootPage = async () => {
+  const host = headers().get('host');
+  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
+  const url = `${protocol}://${host}`;
+
   const trainersFromDB = await getTrainersFromDB();
-  const result = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/fb`, {
+  const result = await fetch(`${url}/api/fb`, {
     cache: 'no-store',
   });
   const posts = await result.json();
