@@ -1,4 +1,5 @@
 interface TrainerItemProps {
+  id: string;
   avatar: string;
   name: string;
   title: string;
@@ -66,8 +67,24 @@ interface BlogCardDetailsProps {
 interface BlogCardProps {
   id: string;
   message: string;
-  full_picture: string;
-  created_time: string;
+  full_picture?: string;
+  created_time?: string;
+  comments?: {
+    data: any[];
+    summary: {
+      order: string;
+      total_count: number;
+      can_comment: boolean;
+    };
+  };
+  likes?: {
+    data: any[];
+    summary: {
+      total_count: number;
+      can_like: boolean;
+      has_liked: boolean;
+    };
+  };
 }
 
 interface HamMenuProps {

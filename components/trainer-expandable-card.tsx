@@ -52,7 +52,7 @@ export function ExpandableTrainerCard({
         {active && typeof active === 'object' ? (
           <div className='fixed inset-0  grid place-items-center z-[100]'>
             <motion.button
-              key={`button-${active.title}-${id}`}
+              key={`button-${active.id}-${id}`}
               layout
               initial={{
                 opacity: 0,
@@ -72,18 +72,21 @@ export function ExpandableTrainerCard({
               <CloseIcon />
             </motion.button>
             <motion.div
-              layoutId={`card-${active.title}-${id}`}
+              layoutId={`card-${active.id}-${id}`}
               ref={ref}
               className='w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden'
             >
-              <motion.div layoutId={`image-${active.title}-${id}`}>
+              <motion.div
+                className='w-full grid place-items-center'
+                layoutId={`image-${active.id}-${id}`}
+              >
                 <Image
                   priority
-                  width={1000}
-                  height={1000}
+                  width={800}
+                  height={600}
                   src={active.avatar}
-                  alt={active.title}
-                  className='w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-center'
+                  alt={active.name}
+                  className='w-fit h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-contain object-center'
                 />
               </motion.div>
 
@@ -91,13 +94,13 @@ export function ExpandableTrainerCard({
                 <div className='flex justify-between items-start p-4'>
                   <div className=''>
                     <motion.h3
-                      layoutId={`title-${active.title}-${id}`}
+                      layoutId={`title-${active.id}-${id}`}
                       className='font-medium text-neutral-700 dark:text-neutral-200 text-base'
                     >
                       {active.name}
                     </motion.h3>
                     <motion.p
-                      layoutId={`description-${active.title}-${id}`}
+                      layoutId={`description-${active.id}-${id}`}
                       className='text-neutral-600 dark:text-neutral-400 text-base'
                     >
                       {active.title}
@@ -129,33 +132,33 @@ export function ExpandableTrainerCard({
         viewport={{ once: true }}
         className='w-full mx-auto grid grid-cols-1 md:grid-cols-3 items-start gap-4'
       >
-        {cards.map((card, index) => (
+        {cards.map((card, _) => (
           <motion.div
-            layoutId={`card-${card.title}-${id}`}
-            key={card.title}
+            layoutId={`card-${card.id}-${id}`}
+            key={card.id}
             variants={sectionItem}
             onClick={() => setActive(card)}
             className='flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer'
           >
             <div className='flex gap-4 flex-col  w-full'>
-              <motion.div layoutId={`image-${card.title}-${id}`}>
+              <motion.div layoutId={`image-${card.id}-${id}`}>
                 <Image
-                  width={1000}
-                  height={1000}
+                  width={800}
+                  height={600}
                   src={card.avatar}
-                  alt={card.title}
-                  className='h-60 w-full  rounded-lg object-cover object-center'
+                  alt={card.name}
+                  className='h-80 w-full rounded-lg object-cover object-center'
                 />
               </motion.div>
               <div className='flex justify-center items-center flex-col'>
                 <motion.h3
-                  layoutId={`title-${card.title}-${id}`}
+                  layoutId={`title-${card.id}-${id}`}
                   className='font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left text-base'
                 >
                   {card.name}
                 </motion.h3>
                 <motion.p
-                  layoutId={`description-${card.title}-${id}`}
+                  layoutId={`description-${card.id}-${id}`}
                   className='text-neutral-600 dark:text-neutral-400 text-center md:text-left text-base'
                 >
                   {card.title}

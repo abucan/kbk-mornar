@@ -1,9 +1,9 @@
 import { Header } from '../_components/header';
-import { getPostsFromDB } from '@/actions/posts.actions';
 import { BlogExpandableCard } from '@/components/blog-expandable-card';
 
 const BlogPage = async () => {
-  const postsFromDB = await getPostsFromDB();
+  const result = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/fb`);
+  const posts = await result.json();
 
   return (
     <section className='pt-8 pb-16 relative bg-slate-100' id='novosti'>
@@ -13,7 +13,7 @@ const BlogPage = async () => {
             aktivnostima.'
       />
       <div className='max-w-screen-xl mx-auto px-4 md:px-8 mt-8 sm:mt-16'>
-        <BlogExpandableCard cards={postsFromDB} />
+        <BlogExpandableCard cards={posts.data.slice(0, 15)} />
       </div>
     </section>
   );
