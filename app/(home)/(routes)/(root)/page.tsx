@@ -26,10 +26,6 @@ const RootPage = async () => {
       cache: "no-store",
     });
 
-    if (!result.ok) {
-      throw new Error(`Failed to fetch posts: ${result.status}`);
-    }
-
     posts = await result.json();
   } catch (error) {
     console.error("Error fetching posts:", error);
