@@ -8,15 +8,32 @@ import { getTrainersFromDB } from "@/actions/trainers.actions";
 import { headers } from "next/headers";
 
 const RootPage = async () => {
-  const host = headers().get("host");
-  const protocol = "https";
-  const url = `${protocol}://${host}`;
+  let trainersFromDB = [];
+  let posts = { data: [] };
 
-  const trainersFromDB = await getTrainersFromDB();
-  const result = await fetch(`${url}/api/fb`, {
-    cache: "no-store",
-  });
-  const posts = await result.json();
+  try {
+    trainersFromDB = await getTrainersFromDB();
+  } catch (error) {
+    console.error("Error fetching trainers:", error);
+  }
+
+  try {
+    const host = headers().get("host");
+    const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+    const url = `${protocol}://${host}`;
+
+    const result = await fetch(`${url}/api/fb`, {
+      cache: "no-store",
+    });
+
+    if (!result.ok) {
+      throw new Error(`Failed to fetch posts: ${result.status}`);
+    }
+
+    posts = await result.json();
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+  }
 
   return (
     <>
