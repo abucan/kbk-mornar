@@ -10,7 +10,7 @@ export const MobileNavbar = () => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <nav className="bg-white sticky top-0 z-50 w-full md:text-sm md:hidden h-[90px] flex items-center">
+    <nav className="bg-white sticky top-0 z-50 w-full md:text-sm md:hidden h-[90px] flex items-center shadow-md">
       <div className="items-center px-4 w-full mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between md:block">
           <div>

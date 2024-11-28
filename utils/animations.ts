@@ -11,6 +11,16 @@ const heroContainer = {
   },
 };
 
+const mobileHeroContainer = {
+  visible: {
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.25,
+      duration: 0.75,
+    },
+  },
+}
+
 const heroItem = {
   hidden: { y: 20, opacity: 0 },
   visible: {
@@ -75,6 +85,7 @@ export {
   sectionContainer,
   sectionItem,
   heroContainer,
+  mobileHeroContainer,
   heroItem,
   buttonHover,
   fadeIn,

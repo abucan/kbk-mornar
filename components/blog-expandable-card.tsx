@@ -60,7 +60,7 @@ export function BlogExpandableCard() {
 
   return (
     <>
-      <ul className="w-full mx-auto grid grid-cols-1 md:grid-cols-3 items-start gap-4">
+      <ul className="w-full mx-auto grid grid-cols-1 md:grid-cols-3 items-start gap-8 sm:gap-4">
         {data?.map((card: BlogCardProps, _: number) => (
           <div key={card.id}>
             <Card className="flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl min-h-[550px]">

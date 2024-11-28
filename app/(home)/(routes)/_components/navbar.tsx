@@ -5,7 +5,7 @@ import { NAV_LINKS } from "@/utils/nav-links";
 
 export const Navbar = () => {
   return (
-    <nav className="bg-white sticky top-0 z-50 border-b w-full md:text-sm hidden md:block">
+    <nav className="bg-white sticky top-0 z-50 border-b w-full md:text-sm hidden md:block shadow-md">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
           <Logo />
