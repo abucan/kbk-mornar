@@ -9,7 +9,7 @@ import { headers } from "next/headers";
 
 const RootPage = async () => {
   const host = headers().get("host");
-  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+  const protocol = "https";
   const url = `${protocol}://${host}`;
 
   const trainersFromDB = await getTrainersFromDB();
@@ -17,8 +17,6 @@ const RootPage = async () => {
     cache: "no-store",
   });
   const posts = await result.json();
-
-  console.log(url);
 
   return (
     <>
