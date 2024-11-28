@@ -112,6 +112,7 @@ interface NavItemProps {
   path: string;
   title: string;
   idx: number;
+  onPress?: () => void;
 }
 
 interface ScheduleItemProps {

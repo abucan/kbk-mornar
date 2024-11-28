@@ -4,6 +4,7 @@ import { Contact } from "../_components/contact";
 import { AboutUs } from "../_components/about-us";
 import { Schedule } from "../_components/schedule";
 import { Trainers } from "../_components/trainers";
+import { MobileHero } from "../_components/mobile-hero";
 import { getTrainersFromDB } from "@/actions/trainers.actions";
 
 const RootPage = async () => {
@@ -18,6 +19,7 @@ const RootPage = async () => {
   return (
     <>
       <Hero />
+      <MobileHero />
       <AboutUs />
       <Trainers trainers={trainersFromDB} />
       <Blog />
