@@ -14,7 +14,7 @@ export const HERO_ITEMS: HeroItem[] = [
     image: Aperture,
   },
   {
-    title: 'Privatni trenizi',
+    title: 'Trenizi',
     image: Trophy,
   },
 ];

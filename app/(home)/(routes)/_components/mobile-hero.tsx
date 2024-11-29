@@ -23,7 +23,7 @@ export const MobileHero = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid p-8 grid-flow-col grid-rows-1 place-items-center gap-4 rounded-none border bg-card text-card-foreground"
+          className="grid p-8 grid-flow-col grid-rows-1 place-items-center gap-6 rounded-none border bg-card text-card-foreground"
         >
           {HERO_ITEMS.map((item, _) => {
             const Icon = item.image;

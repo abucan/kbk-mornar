@@ -1,46 +1,46 @@
-'use client';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { fadeIn } from '@/utils/animations';
-import kbkintro from '@/public/kbkintro.jpeg';
-import { ABOUT_US_TEXT } from '@/utils/strings';
+"use client";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/animations";
+import kbkintro from "@/public/kbkintro.jpeg";
+import { ABOUT_US_TEXT } from "@/utils/strings";
 
 export const AboutUs = () => {
   return (
     <section
-      className='py-8 sm:py-16 relative mt-0 sm:mt-20 bg-[#F1F5F9]'
-      id='aboutus'
+      className="pt-0 pb-8 sm:pb-0 sm:py-16 relative mt-0 sm:mt-20 bg-[#F1F5F9]"
+      id="aboutus"
     >
       <div>
-        <div className='max-w-screen-xl mx-auto md:px-8'>
-          <div className='items-center gap-x-12 sm:px-4 md:px-0 lg:flex'>
+        <div className="max-w-screen-xl mx-auto md:px-8">
+          <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
             <motion.div
-              variants={fadeIn('right', 0.35)}
-              initial='hidden'
-              whileInView={'show'}
+              variants={fadeIn("right", 0.35)}
+              initial="hidden"
+              whileInView={"show"}
               viewport={{ once: true }}
-              className='flex justify-center'
+              className="flex justify-center"
             >
               <Image
                 src={kbkintro}
-                className='max-w-md md:max-w-lg rounded-md shadow-md shadow-[#F1F5F9] px-4 sm:px-0'
-                alt='Intro'
+                className="max-w-md md:max-w-lg rounded-md shadow-md shadow-[#F1F5F9] px-4 sm:px-0"
+                alt="Intro"
               />
             </motion.div>
             <motion.div
-              variants={fadeIn('left', 0.35)}
-              initial='hidden'
-              whileInView={'show'}
+              variants={fadeIn("left", 0.35)}
+              initial="hidden"
+              whileInView={"show"}
               viewport={{ once: true }}
-              className='max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl'
+              className="max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl"
             >
-              <h3 className='text-indigo-600 font-semibold text-center lg:text-left'>
+              <h3 className="text-black font-semibold text-center lg:text-left">
                 KBK MORNAR SPLIT
               </h3>
-              <p className='text-gray-800 text-3xl font-semibold sm:text-4xl border-l-8 rounded-lg border-[#e08639] pl-2'>
+              <p className="text-gray-800 text-3xl font-semibold sm:text-4xl border-l-8 rounded-lg border-[#e08639] pl-2">
                 O nama
               </p>
-              <p className='mt-3 text-gray-600'>{ABOUT_US_TEXT}</p>
+              <p className="mt-3 text-gray-600">{ABOUT_US_TEXT}</p>
             </motion.div>
           </div>
         </div>
