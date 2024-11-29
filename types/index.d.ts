@@ -130,3 +130,8 @@ interface HeroItem {
   title: string;
   image: LucideIcon;
 }
+
+interface GalleryCarouselProps {
+  images: string[];
+  description: string;
+}

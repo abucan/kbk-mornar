@@ -1,5 +1,6 @@
 import { Hero } from "../_components/hero";
 import { Blog } from "../_components/blog";
+import { Gallery } from "../_components/gallery";
 import { Contact } from "../_components/contact";
 import { AboutUs } from "../_components/about-us";
 import { Schedule } from "../_components/schedule";
@@ -23,6 +24,7 @@ const RootPage = async () => {
       <AboutUs />
       <Trainers trainers={trainersFromDB} />
       <Blog />
+      <Gallery />
       <Schedule />
       <Contact />
     </>

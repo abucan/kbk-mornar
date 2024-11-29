@@ -8,7 +8,7 @@ import { ABOUT_US_TEXT } from "@/utils/strings";
 export const AboutUs = () => {
   return (
     <section
-      className="pt-0 pb-8 sm:pb-0 sm:py-16 relative mt-0 sm:mt-20 bg-[#F1F5F9]"
+      className="pt-0 pb-8 sm:py-16 relative mt-0 sm:mt-20 bg-[#F1F5F9]"
       id="aboutus"
     >
       <div>
@@ -23,7 +23,7 @@ export const AboutUs = () => {
             >
               <Image
                 src={kbkintro}
-                className="max-w-md md:max-w-lg rounded-md shadow-md shadow-[#F1F5F9] px-4 sm:px-0"
+                className="w-full md:max-w-lg sm:rounded-md shadow-md shadow-[#F1F5F9] sm:px-0"
                 alt="Intro"
               />
             </motion.div>
