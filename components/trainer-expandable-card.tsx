@@ -131,7 +131,7 @@ export function ExpandableTrainerCard({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="w-full mx-auto grid grid-cols-1 md:grid-cols-3 items-start gap-8 sm:gap-4"
+        className="w-full mx-auto grid grid-cols-1 md:grid-cols-3 items-start gap-6 sm:gap-8"
       >
         {cards.map((card, _) => (
           <motion.div

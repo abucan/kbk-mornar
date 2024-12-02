@@ -18,7 +18,7 @@ export const Schedule = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="max-w-screen-xl mx-auto px-4 md:px-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-8 sm:mt-16"
+        className="max-w-screen-xl mx-auto px-4 md:px-8 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-8 sm:mt-16"
       >
         {GYM_SCHEDULE.map((day) => {
           return (

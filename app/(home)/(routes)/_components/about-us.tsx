@@ -13,7 +13,7 @@ export const AboutUs = () => {
     >
       <div>
         <div className="max-w-screen-xl mx-auto md:px-8">
-          <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
+          <div className="items-center sm:px-4 md:px-0 md:flex md:justify-between">
             <motion.div
               variants={fadeIn("right", 0.35)}
               initial="hidden"
@@ -40,7 +40,7 @@ export const AboutUs = () => {
               <p className="text-gray-800 text-3xl font-semibold sm:text-4xl border-l-8 rounded-lg border-[#e08639] pl-2">
                 O nama
               </p>
-              <p className="mt-3 text-gray-600">{ABOUT_US_TEXT}</p>
+              <p className="text-gray-600">{ABOUT_US_TEXT}</p>
             </motion.div>
           </div>
         </div>

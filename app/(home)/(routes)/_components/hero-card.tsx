@@ -11,7 +11,7 @@ export const HeroCard = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="grid grid-flow-col grid-rows-2 sm:grid-rows-1 place-items-center py-6 px-6 sm:px-12 gap-4 sm:gap-0 sm:space-x-10 rounded-none shadow-lg border bg-card text-card-foreground"
+      className="grid grid-flow-col grid-rows-2 sm:grid-rows-1 place-items-center py-6 px-6 sm:px-12 space-x-6 sm:space-x-10 rounded-none shadow-lg border bg-card text-card-foreground"
     >
       {HERO_ITEMS.map((item, _) => {
         const Icon = item.image;

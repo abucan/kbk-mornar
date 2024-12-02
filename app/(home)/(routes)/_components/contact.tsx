@@ -9,7 +9,7 @@ export const Contact = () => {
   return (
     <main className="mt-16 sm:mt-32 py-8 sm:py-16 bg-slate-100" id="contact">
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
-        <div className="max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none space-y-4 lg:space-y-0">
+        <div className="max-w-lg mx-auto justify-between lg:flex lg:max-w-none space-y-4 lg:space-y-0">
           <motion.div
             variants={fadeIn("right", 0.35)}
             initial="hidden"
@@ -28,7 +28,7 @@ export const Contact = () => {
               pošaljite nam poruku. Odgovorit ćemo u najkraćem mogućem roku.
             </p>
             <div>
-              <ul className="mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center">
+              <ul className="flex flex-wrap gap-4 items-center">
                 {CONTACT_METHODS.map((item, idx) => {
                   const Icon = item.icon;
                   return (
