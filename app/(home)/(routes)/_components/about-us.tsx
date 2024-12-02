@@ -32,7 +32,7 @@ export const AboutUs = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: true }}
-              className="max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl"
+              className="max-w-xl px-4 space-y-4 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl"
             >
               <h3 className="text-black font-semibold text-center lg:text-left">
                 KBK MORNAR SPLIT

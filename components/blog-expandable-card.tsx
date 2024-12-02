@@ -9,8 +9,8 @@ import { formatDistanceToNow } from "date-fns";
 import React, { useEffect, useRef, useState } from "react";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { FooterSocialButton } from "@/app/(home)/(routes)/_components/footer-social-button";
 import { sectionContainer, sectionItem } from "@/utils/animations";
+import { FooterSocialButton } from "@/app/(home)/(routes)/_components/footer-social-button";
 
 export function BlogExpandableCard() {
   const [expandedCards, setExpandedCards] = useState<Map<string, boolean>>(

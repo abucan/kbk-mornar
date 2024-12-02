@@ -19,10 +19,10 @@ export const Header = ({
       <div
         className={`items-start justify-between border-b md:flex ${
           isRightSide ? "flex-row-reverse" : ""
-        } ${insideContainer ? "py-0" : "py-4"}`}
+        } ${insideContainer ? "py-0 pb-4" : "py-4"}`}
       >
         <div
-          className={`max-w-2xl flex flex-col items-center ${
+          className={`max-w-2xl flex flex-col items-center space-y-4 ${
             isRightSide ? "sm:items-end" : "sm:items-start"
           }`}
         >
