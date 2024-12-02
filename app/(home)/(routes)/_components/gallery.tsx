@@ -7,10 +7,11 @@ import { GalleryCarousel } from "./gallery-carousel";
 export const Gallery = () => {
   return (
     <section
-      className="mt-16 sm:mt-32 py-16 relative bg-slate-100"
+      className="mt-16 sm:mt-32 py-8 sm:py-16 relative bg-slate-100"
       id="gallery"
     >
       <Header
+        insideContainer
         title="Galerija"
         description="Pregledajte trenutke iz naših treninga, događanja i svakodnevnih aktivnosti. Inspirirajte se našom energijom i zajedništvom!"
       />

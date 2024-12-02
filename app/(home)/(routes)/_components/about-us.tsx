@@ -23,7 +23,7 @@ export const AboutUs = () => {
             >
               <Image
                 src={kbkintro}
-                className="w-full md:max-w-lg sm:rounded-md shadow-md shadow-[#F1F5F9] sm:px-0"
+                className="w-full md:max-w-lg sm:rounded-lg shadow-md shadow-[#F1F5F9] sm:px-0"
                 alt="Intro"
               />
             </motion.div>

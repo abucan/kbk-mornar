@@ -96,6 +96,7 @@ interface HeaderProps {
   title: string;
   description: string;
   isRightSide?: boolean;
+  insideContainer?: boolean;
 }
 
 interface HeroCardItemProps {

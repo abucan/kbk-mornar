@@ -5,7 +5,7 @@ import { ExpandableTrainerCard } from "@/components/trainer-expandable-card";
 
 export const Trainers = ({ trainers }: { trainers: any }) => {
   return (
-    <section className="pt-32 relative" id="trainers">
+    <section className="pt-32 sm:pt-48 relative" id="trainers">
       <Header
         title="Upoznajte naše trenere"
         description="Naši iskusni i certificirani treneri predani su vašem napretku, pružajući stručnu podršku i motivaciju na svakom koraku vašeg sportskog puta."

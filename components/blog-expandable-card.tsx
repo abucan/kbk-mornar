@@ -1,14 +1,16 @@
 "use client";
 import Image from "next/image";
 import { hr } from "date-fns/locale";
+import { motion } from "framer-motion";
 import facebook from "@/public/facebook.svg";
+import { usePathname } from "next/navigation";
 import { cx } from "class-variance-authority";
 import { formatDistanceToNow } from "date-fns";
 import React, { useEffect, useRef, useState } from "react";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { FooterSocialButton } from "@/app/(home)/(routes)/_components/footer-social-button";
-import { usePathname } from "next/navigation";
+import { sectionContainer, sectionItem } from "@/utils/animations";
 
 export function BlogExpandableCard() {
   const [expandedCards, setExpandedCards] = useState<Map<string, boolean>>(
@@ -60,10 +62,16 @@ export function BlogExpandableCard() {
 
   return (
     <>
-      <ul className="w-full mx-auto grid grid-cols-1 md:grid-cols-3 items-start gap-8 sm:gap-4">
+      <motion.ul
+        variants={sectionContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="w-full mx-auto grid grid-cols-1 md:grid-cols-3 items-start gap-8 sm:gap-4"
+      >
         {data?.map((card: BlogCardProps, _: number) => (
-          <div key={card.id}>
-            <Card className="flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl min-h-[550px]">
+          <motion.div variants={sectionItem} key={card.id}>
+            <Card className="flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg min-h-[550px]">
               <div className="flex flex-row items-center justify-between pr-6">
                 <div>
                   <CardHeader className="flex flex-row items-center gap-4">
@@ -122,9 +130,9 @@ export function BlogExpandableCard() {
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </motion.div>
         ))}
-      </ul>
+      </motion.ul>
     </>
   );
 }

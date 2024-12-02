@@ -85,7 +85,7 @@ export const SendEmailForm = () => {
         />
         <Button
           type="submit"
-          className="w-full bg-[#e08639] text-white"
+          className="w-full bg-[#e08639] text-white rounded-lg"
           variant="outline"
           disabled={isSubmitting}
         >
