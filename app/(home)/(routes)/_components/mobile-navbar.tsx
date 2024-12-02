@@ -9,6 +9,12 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 export const MobileNavbar = () => {
   const [isOpen, setOpen] = useState(false);
 
+  const handlePress = () => {
+    setTimeout(() => {
+      setOpen(false);
+    }, 500);
+  };
+
   return (
     <nav className="bg-white sticky top-0 z-50 w-full md:text-sm md:hidden h-[90px] flex items-center shadow-md">
       <div className="items-center px-4 w-full mx-auto md:flex md:px-8">
@@ -26,7 +32,7 @@ export const MobileNavbar = () => {
                   {NAV_LINKS.map((item, idx) => {
                     return (
                       <NavItem
-                        onPress={() => setOpen(false)}
+                        onPress={handlePress}
                         key={idx}
                         idx={idx}
                         path={item.path}
