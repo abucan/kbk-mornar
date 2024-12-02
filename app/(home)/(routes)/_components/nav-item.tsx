@@ -1,17 +1,16 @@
 "use client";
+import Link from "next/link";
+
 export const NavItem = ({ path, title, idx, onPress }: NavItemProps) => {
   return (
-    <li
+    <Link
       key={idx}
       onClick={onPress}
-      className="text-gray-700 hover:text-[#e08639]"
+      className="text-gray-700 block hover:text-[#e08639] font-light active:font-semibold text-[15px]"
+      href={path}
+      scroll={true}
     >
-      <a
-        href={path}
-        className="block uppercase font-light active:font-semibold"
-      >
-        {title}
-      </a>
-    </li>
+      {title}
+    </Link>
   );
 };

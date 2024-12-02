@@ -9,7 +9,7 @@ export const AboutUs = () => {
   return (
     <section
       className="pt-0 pb-8 sm:py-16 relative mt-0 sm:mt-20 bg-[#F1F5F9]"
-      id="aboutus"
+      id="about-us"
     >
       <div>
         <div className="max-w-screen-xl mx-auto md:px-8">

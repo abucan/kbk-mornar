@@ -3,7 +3,7 @@ import { BlogExpandableCard } from "@/components/blog-expandable-card";
 
 const BlogPage = async () => {
   return (
-    <section className="pt-8 pb-16 relative bg-slate-100" id="novosti">
+    <section className="py-8 sm:py-16 relative bg-slate-100" id="novosti">
       <Header
         title="Novosti iz kluba"
         description="Pogledajte najnovije informacije iz kluba i saznajte više o
