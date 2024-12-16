@@ -71,7 +71,7 @@ export function BlogExpandableCard() {
       >
         {data?.map((card: BlogCardProps, _: number) => (
           <motion.div variants={sectionItem} key={card.id}>
-            <Card className="flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg min-h-[550px]">
+            <Card className="flex flex-col  hover:bg-neutral-50 rounded-lg min-h-[550px]">
               <div className="flex flex-row items-center justify-between pr-6">
                 <div>
                   <CardHeader className="flex flex-row items-center gap-4">

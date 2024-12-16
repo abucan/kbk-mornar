@@ -43,7 +43,7 @@ export const MobileHero = () => {
           })}
         </motion.div>
       </div>
-      <div className="-z-10 absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      <div className="-z-10 absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
     </section>
   );
 };

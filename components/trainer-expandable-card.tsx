@@ -75,7 +75,7 @@ export function ExpandableTrainerCard({
             <motion.div
               layoutId={`card-${active.id}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white sm:rounded-3xl overflow-hidden"
             >
               <motion.div
                 className="w-full grid place-items-center"
@@ -96,13 +96,13 @@ export function ExpandableTrainerCard({
                   <div className="">
                     <motion.h3
                       layoutId={`title-${active.id}-${id}`}
-                      className="font-medium text-neutral-700 dark:text-neutral-200 text-base"
+                      className="font-medium text-neutral-700 text-base"
                     >
                       {active.name}
                     </motion.h3>
                     <motion.p
                       layoutId={`description-${active.id}-${id}`}
-                      className="text-neutral-600 dark:text-neutral-400 text-base"
+                      className="text-neutral-600 text-base"
                     >
                       {active.title}
                     </motion.p>
@@ -114,7 +114,7 @@ export function ExpandableTrainerCard({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="max-h-[350px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent pr-2 text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    className="max-h-[350px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent pr-2 text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                   >
                     {typeof active.content === "function"
                       ? active.content()
@@ -139,7 +139,7 @@ export function ExpandableTrainerCard({
             key={card.id}
             variants={sectionItem}
             onClick={() => setActive(card)}
-            className="flex flex-col hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+            className="flex flex-col hover:bg-neutral-50 rounded-xl cursor-pointer"
           >
             <div className="flex gap-4 flex-col w-full">
               <motion.div layoutId={`image-${card.id}-${id}`}>
@@ -154,13 +154,13 @@ export function ExpandableTrainerCard({
               <div className="flex justify-center items-center flex-col">
                 <motion.h3
                   layoutId={`title-${card.id}-${id}`}
-                  className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left text-base"
+                  className="font-medium text-neutral-800 text-center md:text-left text-base"
                 >
                   {card.name}
                 </motion.h3>
                 <motion.p
                   layoutId={`description-${card.id}-${id}`}
-                  className="text-neutral-600 dark:text-neutral-400 text-center md:text-left text-base"
+                  className="text-neutral-600 text-center md:text-left text-base"
                 >
                   {card.title}
                 </motion.p>
