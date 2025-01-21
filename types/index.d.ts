@@ -135,4 +135,5 @@ interface HeroItem {
 interface GalleryCarouselProps {
   images: string[];
   description: string;
+  withCard?: boolean;
 }

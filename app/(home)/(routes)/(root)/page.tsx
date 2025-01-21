@@ -7,6 +7,7 @@ import { Schedule } from "../_components/schedule";
 import { Trainers } from "../_components/trainers";
 import { MobileHero } from "../_components/mobile-hero";
 import { getTrainersFromDB } from "@/actions/trainers.actions";
+import { FeaturedFighter } from "../_components/featured-fighter";
 
 const RootPage = async () => {
   let trainersFromDB = [];
@@ -23,6 +24,7 @@ const RootPage = async () => {
       <MobileHero />
       <AboutUs />
       <Trainers trainers={trainersFromDB} />
+      <FeaturedFighter />
       <Blog />
       <Gallery />
       <Schedule />

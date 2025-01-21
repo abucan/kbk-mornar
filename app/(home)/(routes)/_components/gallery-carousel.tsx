@@ -13,6 +13,7 @@ import { Card, CardContent } from "@/components/ui/card";
 export const GalleryCarousel = ({
   images,
   description,
+  withCard = true,
 }: GalleryCarouselProps) => {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
@@ -42,17 +43,27 @@ export const GalleryCarousel = ({
         <CarouselContent>
           {images.map((src, index) => (
             <CarouselItem key={index}>
-              <Card>
-                <CardContent className="flex aspect-[3/2] items-center justify-center p-6">
-                  <Image
-                    src={src}
-                    alt={`Gallery image ${index + 1}`}
-                    width={600}
-                    height={400}
-                    className="object-cover rounded-md"
-                  />
-                </CardContent>
-              </Card>
+              {withCard ? (
+                <Card>
+                  <CardContent className="flex aspect-[3/2] items-center justify-center p-6">
+                    <Image
+                      src={src}
+                      alt={`Gallery image ${index + 1}`}
+                      width={600}
+                      height={400}
+                      className="object-cover rounded-md"
+                    />
+                  </CardContent>
+                </Card>
+              ) : (
+                <Image
+                  src={src}
+                  alt={`Gallery image ${index + 1}`}
+                  width={600}
+                  height={400}
+                  className="object-cover rounded-md px-6 aspect-square"
+                />
+              )}
             </CarouselItem>
           ))}
         </CarouselContent>
