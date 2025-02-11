@@ -2,8 +2,7 @@ export const trainerItems = [
   {
     id: 1,
 
-    avatar:
-      "https://cloud.appwrite.io/v1/storage/buckets/665d9a7b0036a3f8612f/files/67aa073e0012ece5f429/view?project=665d75ee002274861442&mode=admin",
+    avatar: "/trainers/dario.JPG",
     name: "Dario Jurišić",
     title: "Trener",
     content:
@@ -11,8 +10,7 @@ export const trainerItems = [
   },
   {
     id: 2,
-    avatar:
-      "https://cloud.appwrite.io/v1/storage/buckets/665d9a7b0036a3f8612f/files/67aa0b09000e1550f344/view?project=665d75ee002274861442&mode=admin",
+    avatar: "/trainers/tabak.PNG",
     name: "Ivan Tabak",
     title: "Trener",
     content:
@@ -20,8 +18,7 @@ export const trainerItems = [
   },
   {
     id: 3,
-    avatar:
-      "https://cloud.appwrite.io/v1/storage/buckets/665d9a7b0036a3f8612f/files/67a34a610003e3e2681c/view?project=665d75ee002274861442&mode=admin",
+    avatar: "/trainers/petar.PNG",
     name: "Petar Pastuović",
     title: "Trener",
     content:
@@ -29,8 +26,7 @@ export const trainerItems = [
   },
   {
     id: 4,
-    avatar:
-      "https://cloud.appwrite.io/v1/storage/buckets/665d9a7b0036a3f8612f/files/6745c505000e862d7253/view?project=665d75ee002274861442&project=665d75ee002274861442&mode=admin",
+    avatar: "/trainers/mate.PNG",
     name: "Mate Grčić",
     title: "Trener",
     content:
@@ -38,8 +34,7 @@ export const trainerItems = [
   },
   {
     id: 5,
-    avatar:
-      "https://cloud.appwrite.io/v1/storage/buckets/665d9a7b0036a3f8612f/files/67aa07fe000ef375c0df/view?project=665d75ee002274861442&mode=admin",
+    avatar: "/trainers/anton.JPG",
     name: "Anton Žanko",
     title: "Trener",
     content:

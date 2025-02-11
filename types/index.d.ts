@@ -136,4 +136,5 @@ interface GalleryCarouselProps {
   images: string[];
   description: string;
   withCard?: boolean;
+  isGallery?: boolean;
 }

@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { Header } from "./header";
-import { IMAGES } from "@/utils/images";
+import { IMAGES, OLYMPIC_GAMES } from "@/utils/images";
 import { GalleryCarousel } from "./gallery-carousel";
 
 export const Gallery = () => {
@@ -17,9 +17,21 @@ export const Gallery = () => {
       />
       <div className="max-w-screen-xl mx-auto px-4 md:px-8 mt-8 sm:mt-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-          <GalleryCarousel images={IMAGES} description="Opis galerije slika" />
-          <GalleryCarousel images={IMAGES} description="Opis galerije slika" />
-          <GalleryCarousel images={IMAGES} description="Opis galerije slika" />
+          <GalleryCarousel
+            images={OLYMPIC_GAMES}
+            description="Olimpijske igre Pariz 2024."
+            isGallery
+          />
+          <GalleryCarousel
+            images={IMAGES}
+            description="Opis galerije slika"
+            isGallery
+          />
+          <GalleryCarousel
+            images={IMAGES}
+            description="Opis galerije slika"
+            isGallery
+          />
         </div>
       </div>
     </section>
