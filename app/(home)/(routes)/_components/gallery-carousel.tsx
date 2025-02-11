@@ -7,13 +7,17 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselApi,
+  CarouselPrevious,
+  CarouselNext,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const GalleryCarousel = ({
   images,
   description,
   withCard = true,
+  isGallery = false,
 }: GalleryCarouselProps) => {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
@@ -39,6 +43,9 @@ export const GalleryCarousel = ({
 
   return (
     <div className="w-full">
+      {isGallery && (
+        <p className="text-muted-foreground mb-4 text-left">{description}</p>
+      )}
       <Carousel setApi={setApi} className="w-full">
         <CarouselContent>
           {images.map((src, index) => (
@@ -67,21 +74,16 @@ export const GalleryCarousel = ({
             </CarouselItem>
           ))}
         </CarouselContent>
+        <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2">
+          <ChevronLeft className="h-6 w-6" />
+        </CarouselPrevious>
+        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2">
+          <ChevronRight className="h-6 w-6" />
+        </CarouselNext>
       </Carousel>
-      <p className="text-muted-foreground mt-1 text-center">{description}</p>
-      <div className="flex justify-center mt-4 space-x-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            className={cn(
-              "w-3 h-3 rounded-full transition-colors duration-300",
-              current === index ? "bg-primary" : "bg-gray-300 hover:bg-gray-400"
-            )}
-            onClick={() => handleDotClick(index)}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
+      {!isGallery && (
+        <p className="text-muted-foreground mt-1 text-center">{description}</p>
+      )}
     </div>
   );
 };
