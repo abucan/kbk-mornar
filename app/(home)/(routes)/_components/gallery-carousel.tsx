@@ -1,7 +1,6 @@
 "use client";
 import * as React from "react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 import {
   Carousel,
   CarouselContent,
@@ -44,7 +43,9 @@ export const GalleryCarousel = ({
   return (
     <div className="w-full">
       {isGallery && (
-        <p className="text-muted-foreground mb-4 text-left">{description}</p>
+        <p className="text-muted-foreground mb-4 text-center md:text-left">
+          {description}
+        </p>
       )}
       <Carousel setApi={setApi} className="w-full">
         <CarouselContent>
@@ -82,7 +83,7 @@ export const GalleryCarousel = ({
         </CarouselNext>
       </Carousel>
       {!isGallery && (
-        <p className="text-muted-foreground mt-1 text-center">{description}</p>
+        <p className="text-muted-foreground mt-4 text-center">{description}</p>
       )}
     </div>
   );
