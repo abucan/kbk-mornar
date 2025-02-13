@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/animations";
-import kbkintro from "@/public/about-4.png";
+import kbkintro from "@/public/about.png";
 import { ABOUT_US_TEXT } from "@/utils/strings";
 
 export const AboutUs = () => {
