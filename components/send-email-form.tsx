@@ -32,9 +32,9 @@ export const SendEmailForm = () => {
     },
   });
 
-  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+  const serviceId = "service_hofulhi";
+  const templateId = "template_x1rhv7b";
+  const publicKey = "9xmUOq6i3da0wD83c";
 
   const templateParams = {
     from_name: form.getValues("name"),
