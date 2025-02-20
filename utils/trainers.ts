@@ -1,17 +1,5 @@
 export const trainerItems = [
   {
-    id: 1,
-    avatar: '/trainers/limit.JPG',
-    name: 'Stipan Jurišić',
-    title: 'Predsjednik kluba',
-    content:
-      'Rođen 1962., dipl. ing. elektrotehnike, crni pojas 8. DAN, dragovoljac domovinskog rata i visoki časnik HV.\n\n' +
-      'Od 1976. trenira karate, taekwondo i kickboxing.\n' +
-      'Najveći uspjeh - prvak ex. Jugoslavije u kickboxingu 1983.\n\n' +
-      'U dugogodišnjem trenerskom radu postigao brojne vrhunske rezultate u kickboxingu i muaythai. Najveći uspjesi su svjetske i europske titule i medalje.\n' +
-      'Obnašao razne športske dužnosti: ravnatelj JUSO grada Splita, predsjednik HSTB-a, izbornik, direktor i član uprave u HKBS-u, organizator brojnih športskih natjecanja.',
-  },
-  {
     id: 2,
     avatar: '/trainers/dario.JPG',
     name: 'Dario Jurišić',
@@ -52,3 +40,16 @@ export const trainerItems = [
       'Anton Žanko, student 3. godine Kineziološkog fakulteta (smjer kineziterapija), donosi svoje znanje i iskustvo u kickboxing klub Mornar, pomažući vam kroz:\n\nSportske i terapeutske masaže – za opuštanje, bolju cirkulaciju i brži oporavak\nFunkcionalne treninge – usmjerene na poboljšanje pokretljivosti, snage i prevenciju ozljeda\n\nUz razumijevanje pokreta i rehabilitacije, Anton kroz individualan pristup prilagođava masaže i treninge vašim potrebama – bilo da se želite osloboditi napetosti, ubrzati oporavak ili poboljšati tjelesnu funkcionalnost.',
   },
 ];
+
+{/*
+  id: 1,
+  avatar: '/trainers/limit.JPG',
+  name: 'Stipan Jurišić',
+  title: 'Predsjednik kluba',
+  content:
+    'Rođen 1962., dipl. ing. elektrotehnike, crni pojas 8. DAN, dragovoljac domovinskog rata i visoki časnik HV.\n\n' +
+    'Od 1976. trenira karate, taekwondo i kickboxing.\n' +
+    'Najveći uspjeh - prvak ex. Jugoslavije u kickboxingu 1983.\n\n' +
+    'U dugogodišnjem trenerskom radu postigao brojne vrhunske rezultate u kickboxingu i muaythai. Najveći uspjesi su svjetske i europske titule i medalje.\n' +
+    'Obnašao razne športske dužnosti: ravnatelj JUSO grada Splita, predsjednik HSTB-a, izbornik, direktor i član uprave u HKBS-u, organizator brojnih športskih natjecanja.',
+*/}
