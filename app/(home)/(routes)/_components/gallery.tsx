@@ -22,7 +22,7 @@ export const Gallery = () => {
             description="Olimpijske igre Pariz 2024."
             isGallery
           />
-          <GalleryCarousel
+      {/* <GalleryCarousel
             images={IMAGES}
             description="Opis galerije slika"
             isGallery
@@ -31,7 +31,7 @@ export const Gallery = () => {
             images={IMAGES}
             description="Opis galerije slika"
             isGallery
-          />
+          /> */}
         </div>
       </div>
     </section>

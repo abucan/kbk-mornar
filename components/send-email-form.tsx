@@ -32,7 +32,7 @@ export const SendEmailForm = () => {
     },
   });
 
-  const serviceId = "service_5u6v6j4";
+  const serviceId = "service_hofulhi";
   const templateId = "template_x1rhv7b";
   const publicKey = "9xmUOq6i3da0wD83c";
 
