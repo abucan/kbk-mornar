@@ -39,9 +39,19 @@ export const trainerItems = [
     content:
       'Anton Žanko, student 3. godine Kineziološkog fakulteta (smjer kineziterapija), donosi svoje znanje i iskustvo u kickboxing klub Mornar, pomažući vam kroz:\n\nSportske i terapeutske masaže – za opuštanje, bolju cirkulaciju i brži oporavak\nFunkcionalne treninge – usmjerene na poboljšanje pokretljivosti, snage i prevenciju ozljeda\n\nUz razumijevanje pokreta i rehabilitacije, Anton kroz individualan pristup prilagođava masaže i treninge vašim potrebama – bilo da se želite osloboditi napetosti, ubrzati oporavak ili poboljšati tjelesnu funkcionalnost.',
   },
+  {
+    id: 7,
+    avatar: '/trainers/gordan.JPG',
+    name: 'Gordan Vukman',
+    title: 'Trener',
+    content:
+      'Gordan Vukman je student magisterskog sveučilišnog studija na Kineziološkom fakultetu u Splitu, s ciljem stjecanja zvanja magistra kineziologije. Sportom se bavi cijeli život, a s kickboxingom se upoznao sa 15 godina kao član KBK Mornar.\n\n' +
+      'Kao certificirani trener s pet godina iskustva, specijaliziran je za rehabilitaciju ozljeda prednjeg križnog ligamenta (ACL) te radi u Smart Training Centru u Splitu, gdje sportašima pomaže u oporavku i poboljšanju performansi. Uz praktičan rad, aktivno sudjeluje u znanstvenim istraživanjima, spajajući teorijska znanja s trenerskom praksom kako bi osigurao najbolje rezultate svojim klijentima.',
+  },
 ];
 
-{/*
+{
+  /*
   id: 1,
   avatar: '/trainers/limit.JPG',
   name: 'Stipan Jurišić',
@@ -52,4 +62,5 @@ export const trainerItems = [
     'Najveći uspjeh - prvak ex. Jugoslavije u kickboxingu 1983.\n\n' +
     'U dugogodišnjem trenerskom radu postigao brojne vrhunske rezultate u kickboxingu i muaythai. Najveći uspjesi su svjetske i europske titule i medalje.\n' +
     'Obnašao razne športske dužnosti: ravnatelj JUSO grada Splita, predsjednik HSTB-a, izbornik, direktor i član uprave u HKBS-u, organizator brojnih športskih natjecanja.',
-*/}
+*/
+}
