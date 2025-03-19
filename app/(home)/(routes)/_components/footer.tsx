@@ -70,7 +70,13 @@ export const Footer = () => {
             </ul>
           </motion.div>
         </div>
-        <div className='max-w-screen-xl mx-auto px-4 md:px-8 mt-8 border-t-2 border-slate-100'>
+        <motion.div
+          variants={fadeIn('up', 0.35)}
+          initial='hidden'
+          whileInView={'show'}
+          viewport={{ once: true }}
+          className='max-w-screen-xl mx-auto px-4 md:px-8 mt-8 border-t-2 border-slate-100'
+        >
           <h3 className='text-indigo-600 font-semibold uppercase text-sm text-center mt-8'>
             Donatori/Sponzori
           </h3>
@@ -87,7 +93,7 @@ export const Footer = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
