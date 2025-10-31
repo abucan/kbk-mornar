@@ -1,6 +1,6 @@
 'use client';
 import { z } from 'zod';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button } from './ui/button';
 import emailjs from '@emailjs/browser';
 import { useForm } from 'react-hook-form';
@@ -8,18 +8,7 @@ import { CircleCheck } from 'lucide-react';
 import { Form, FormMessage } from './ui/form';
 import { CustomFormField } from './form-field';
 import { zodResolver } from '@hookform/resolvers/zod';
-
-declare global {
-  interface Window {
-    grecaptcha: {
-      ready: (callback: () => void) => void;
-      execute: (
-        siteKey: string,
-        options: { action: string }
-      ) => Promise<string>;
-    };
-  }
-}
+import { useReCaptcha } from 'next-recaptcha-v3';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -35,7 +24,7 @@ const formSchema = z.object({
 
 export const SendEmailForm = () => {
   const [successMsg, setSuccessMsg] = useState('');
-  const [isReCaptchaLoaded, setIsReCaptchaLoaded] = useState(false);
+  const { executeRecaptcha } = useReCaptcha();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -49,49 +38,25 @@ export const SendEmailForm = () => {
   const serviceId = 'service_hofulhi';
   const templateId = 'template_x1rhv7b';
   const publicKey = '9xmUOq6i3da0wD83c';
-  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
-
-  useEffect(() => {
-    const checkReCaptcha = () => {
-      if (window.grecaptcha) {
-        setIsReCaptchaLoaded(true);
-      } else {
-        setTimeout(checkReCaptcha, 100);
-      }
-    };
-    checkReCaptcha();
-  }, []);
-
-  async function getReCaptchaToken(): Promise<string> {
-    return new Promise((resolve, reject) => {
-      if (!window.grecaptcha) {
-        reject(new Error('reCAPTCHA not loaded'));
-        return;
-      }
-
-      window.grecaptcha.ready(async () => {
-        try {
-          const token = await window.grecaptcha.execute(recaptchaSiteKey, {
-            action: 'contact_form',
-          });
-          resolve(token);
-        } catch (error) {
-          reject(error);
-        }
-      });
-    });
-  }
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const recaptchaToken = await getReCaptchaToken();
+      if (!executeRecaptcha) {
+        form.setError('message', {
+          type: 'manual',
+          message: 'reCAPTCHA nije spreman. Pokušajte ponovno.',
+        });
+        return;
+      }
+
+      const token = await executeRecaptcha('contact_form');
 
       const templateParams = {
         from_name: values.name,
         from_email: values.email,
         to_name: 'KBK Mornar Split',
         message: values.message,
-        'g-recaptcha-response': recaptchaToken,
+        'g-recaptcha-response': token,
       };
 
       emailjs
@@ -104,7 +69,6 @@ export const SendEmailForm = () => {
             form.reset();
           },
           (error) => {
-            console.error('Error sending email:', error);
             form.setError('message', {
               type: 'manual',
               message: 'Došlo je do greške. Pokušajte ponovno.',
@@ -112,7 +76,7 @@ export const SendEmailForm = () => {
           }
         );
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error(error);
       form.setError('message', {
         type: 'manual',
         message: 'Došlo je do greške s reCAPTCHA. Pokušajte ponovno.',
@@ -145,7 +109,7 @@ export const SendEmailForm = () => {
           type='submit'
           className='w-full bg-[#e08639] text-white rounded-lg'
           variant='outline'
-          disabled={isSubmitting || !isReCaptchaLoaded}
+          disabled={isSubmitting || !executeRecaptcha}
         >
           Pošalji
         </Button>
