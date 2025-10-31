@@ -1,6 +1,6 @@
 'use client';
 import { z } from 'zod';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Button } from './ui/button';
 import emailjs from '@emailjs/browser';
 import { useForm } from 'react-hook-form';
@@ -8,7 +8,7 @@ import { CircleCheck } from 'lucide-react';
 import { Form, FormMessage } from './ui/form';
 import { CustomFormField } from './form-field';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useReCaptcha } from 'next-recaptcha-v3';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -24,7 +24,9 @@ const formSchema = z.object({
 
 export const SendEmailForm = () => {
   const [successMsg, setSuccessMsg] = useState('');
-  const { executeRecaptcha } = useReCaptcha();
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,24 +41,26 @@ export const SendEmailForm = () => {
   const templateId = 'template_x1rhv7b';
   const publicKey = '9xmUOq6i3da0wD83c';
 
+  const handleRecaptchaChange = (token: string | null) => {
+    setRecaptchaToken(token);
+  };
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      if (!executeRecaptcha) {
+      if (!recaptchaToken) {
         form.setError('message', {
           type: 'manual',
-          message: 'reCAPTCHA nije spreman. Pokušajte ponovno.',
+          message: 'Molimo potvrdite da niste bot.',
         });
         return;
       }
-
-      const token = await executeRecaptcha('contact_form');
 
       const templateParams = {
         from_name: values.name,
         from_email: values.email,
         to_name: 'KBK Mornar Split',
         message: values.message,
-        'g-recaptcha-response': token,
+        'g-recaptcha-response': recaptchaToken,
       };
 
       emailjs
@@ -67,12 +71,16 @@ export const SendEmailForm = () => {
           () => {
             setSuccessMsg('Poruka je uspješno poslana.');
             form.reset();
+            recaptchaRef.current?.reset();
+            setRecaptchaToken(null);
           },
           (error) => {
             form.setError('message', {
               type: 'manual',
               message: 'Došlo je do greške. Pokušajte ponovno.',
             });
+            recaptchaRef.current?.reset();
+            setRecaptchaToken(null);
           }
         );
     } catch (error) {
@@ -81,6 +89,8 @@ export const SendEmailForm = () => {
         type: 'manual',
         message: 'Došlo je do greške s reCAPTCHA. Pokušajte ponovno.',
       });
+      recaptchaRef.current?.reset();
+      setRecaptchaToken(null);
     }
   }
 
@@ -105,11 +115,18 @@ export const SendEmailForm = () => {
           placeholder='Unesite poruku'
           isTextArea
         />
+        <div className='flex justify-center'>
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={recaptchaSiteKey}
+            onChange={handleRecaptchaChange}
+          />
+        </div>
         <Button
           type='submit'
           className='w-full bg-[#e08639] text-white rounded-lg'
           variant='outline'
-          disabled={isSubmitting || !executeRecaptcha}
+          disabled={isSubmitting || !recaptchaToken}
         >
           Pošalji
         </Button>
