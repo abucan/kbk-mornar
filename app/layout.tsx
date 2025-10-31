@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <ReCaptchaProvider
-          reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+          reCaptchaKey={'6LezQv0rAAAAAEKmOln4zhwE_lkzR-NrDGXqXAbF'}
         >
           {children}
         </ReCaptchaProvider>
