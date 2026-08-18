@@ -41,6 +41,12 @@ export const MobileNavbar = () => {
                     );
                   })}
                 </ul>
+                <a
+                  href="tel:+385915401195"
+                  className="mt-8 text-center font-medium text-gray-700 hover:text-indigo-600 transition-colors"
+                >
+                  091 540 1195
+                </a>
               </SheetContent>
             </Sheet>
           </div>

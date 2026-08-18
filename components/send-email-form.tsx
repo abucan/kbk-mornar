@@ -22,6 +22,14 @@ const formSchema = z.object({
   }),
 });
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+const SEND_TO_FORM_SUCCESS = 'AW-18303407803/epX5CJ6P3eMcELut35dE';
+
 export const SendEmailForm = () => {
   const [successMsg, setSuccessMsg] = useState('');
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
@@ -63,31 +71,24 @@ export const SendEmailForm = () => {
         'g-recaptcha-response': recaptchaToken,
       };
 
-      emailjs
-        .send(serviceId, templateId, templateParams, {
-          publicKey,
-        })
-        .then(
-          () => {
-            setSuccessMsg('Poruka je uspješno poslana.');
-            form.reset();
-            recaptchaRef.current?.reset();
-            setRecaptchaToken(null);
-          },
-          (error) => {
-            form.setError('message', {
-              type: 'manual',
-              message: 'Došlo je do greške. Pokušajte ponovno.',
-            });
-            recaptchaRef.current?.reset();
-            setRecaptchaToken(null);
-          }
-        );
+      await emailjs.send(serviceId, templateId, templateParams, {
+        publicKey,
+      });
+
+      window.gtag?.('event', 'conversion', {
+        send_to: SEND_TO_FORM_SUCCESS,
+        transport_type: 'beacon',
+      });
+
+      setSuccessMsg('Poruka je uspješno poslana.');
+      form.reset();
+      recaptchaRef.current?.reset();
+      setRecaptchaToken(null);
     } catch (error) {
       console.error(error);
       form.setError('message', {
         type: 'manual',
-        message: 'Došlo je do greške s reCAPTCHA. Pokušajte ponovno.',
+        message: 'Došlo je do greške. Pokušajte ponovno.',
       });
       recaptchaRef.current?.reset();
       setRecaptchaToken(null);

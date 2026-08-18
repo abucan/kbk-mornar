@@ -34,12 +34,29 @@ export const Contact = () => {
                   return (
                     <li key={idx} className="flex items-center gap-x-3">
                       <Icon />
-                      <p>{item.contact}</p>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="hover:text-indigo-600 transition-colors"
+                        >
+                          {item.contact}
+                        </a>
+                      ) : (
+                        <p>{item.contact}</p>
+                      )}
                     </li>
                   );
                 })}
               </ul>
             </div>
+            <a
+              href="https://wa.me/385915401195"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center justify-center rounded-md bg-[#25D366] px-5 py-3 text-white font-semibold hover:bg-[#1fb857] transition-colors"
+            >
+              WhatsApp
+            </a>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5786.3183454074015!2d16.42338269439156!3d43.51987336637534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13355de5b75b811f%3A0xaf24fc6abf0e93b!2sPoljud%2C%20Split!5e0!3m2!1sen!2shr!4v1715941582052!5m2!1sen!2shr"
               className="w-full h-[250px]"

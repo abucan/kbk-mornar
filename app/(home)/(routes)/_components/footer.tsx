@@ -44,10 +44,18 @@ export const Footer = () => {
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: true }}
-            className='flex flex-row space-x-2 items-center justify-center'
+            className='flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 items-center justify-center'
           >
-            <Copyright className='h-4 w-4 mr-2' />
-            {FOOTER_COPYRIGHT}
+            <div className='flex flex-row space-x-2 items-center justify-center'>
+              <Copyright className='h-4 w-4 mr-2' />
+              {FOOTER_COPYRIGHT}
+            </div>
+            <a
+              href='tel:+385915401195'
+              className='hover:text-gray-800 transition-colors'
+            >
+              091 540 1195
+            </a>
           </motion.div>
           <motion.div
             variants={fadeIn('left', 0.35)}

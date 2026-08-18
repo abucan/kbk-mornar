@@ -8,6 +8,7 @@ export const CONTACT_METHODS = [
   {
     icon: Phone,
     contact: '091 540 1195',
+    href: 'tel:+385915401195',
   },
   {
     icon: MapPin,
