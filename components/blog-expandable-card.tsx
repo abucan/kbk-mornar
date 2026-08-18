@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
 import { hr } from "date-fns/locale";
 import { motion } from "framer-motion";
 import facebook from "@/public/facebook.svg";
@@ -14,6 +14,10 @@ import { sectionContainer, sectionItem } from "@/utils/animations";
 import { FooterSocialButton } from "@/app/(home)/(routes)/_components/footer-social-button";
 
 import animation from "@/utils/animated-loader.json";
+
+const Lottie = dynamic(() => import("lottie-react"), {
+  ssr: false,
+});
 
 export function BlogExpandableCard() {
   const [expandedCards, setExpandedCards] = useState<Map<string, boolean>>(
@@ -65,7 +69,7 @@ export function BlogExpandableCard() {
     };
 
     fetchData();
-  }, []);
+  }, [pathname]);
 
   return (
     <>

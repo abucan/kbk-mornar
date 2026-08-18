@@ -2,7 +2,6 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
-import Script from 'next/script';
 import { CookieConsentBanner } from '@/components/cookie-consent-banner';
 import { GoogleAdsConversionEvents } from '@/components/google-ads-conversion-events';
 import { WhatsAppFloatingButton } from '@/components/whatsapp-floating-button';
@@ -22,25 +21,28 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
-        <Script id='google-consent-default' strategy='beforeInteractive'>
-          {`window.dataLayer = window.dataLayer || [];
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('consent', 'default', {
   ad_storage: 'denied',
   ad_user_data: 'denied',
   ad_personalization: 'denied',
   analytics_storage: 'denied'
-});`}
-        </Script>
-        <Script
-          id='google-gtag-source'
-          strategy='beforeInteractive'
+});`,
+          }}
+        />
+        <script
+          async
           src='https://www.googletagmanager.com/gtag/js?id=AW-18303407803'
         />
-        <Script id='google-gtag-config' strategy='beforeInteractive'>
-          {`gtag('js', new Date());
-gtag('config', 'AW-18303407803');`}
-        </Script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `gtag('js', new Date());
+gtag('config', 'AW-18303407803');`,
+          }}
+        />
       </head>
       <body className={inter.className}>
         {children}

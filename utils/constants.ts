@@ -1,6 +1,12 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
 
-export const CONTACT_METHODS = [
+type ContactMethod = {
+  icon: typeof Mail;
+  contact: string;
+  href?: string;
+};
+
+export const CONTACT_METHODS: ContactMethod[] = [
   {
     icon: Mail,
     contact: 'dariojurisic@kbk-mornar.hr',
