@@ -11,6 +11,14 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'KBK Mornar',
   description: 'Kickboxing / Muaythai Mornar Split',
+  metadataBase: new URL('https://www.kbk-mornar.hr'),
+  alternates: {
+    languages: {
+      hr: '/',
+      en: '/en',
+      'x-default': '/',
+    },
+  },
 };
 
 export default function RootLayout({
@@ -19,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='hr'>
       <head>
         <script
           dangerouslySetInnerHTML={{

@@ -3,9 +3,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/animations";
 import kbkintro from "@/public/about.png";
-import { ABOUT_US_TEXT } from "@/utils/strings";
+import { useI18n } from "@/components/providers/i18n-provider";
 
 export const AboutUs = () => {
+  const { dictionary } = useI18n();
+
   return (
     <section
       className="pt-0 pb-8 sm:py-16 relative mt-0 sm:mt-20 bg-[#F1F5F9]"
@@ -38,9 +40,9 @@ export const AboutUs = () => {
                 KBK MORNAR SPLIT
               </h3>
               <p className="text-gray-800 text-3xl font-semibold sm:text-4xl border-l-8 rounded-lg border-[#e08639] pl-2">
-                O nama
+                {dictionary.about.title}
               </p>
-              <p className="text-gray-600">{ABOUT_US_TEXT}</p>
+              <p className="text-gray-600">{dictionary.about.text}</p>
             </motion.div>
           </div>
         </div>

@@ -2,11 +2,15 @@
 import Image from "next/image";
 import bg_1 from "@/public/bg_1.png";
 import { motion } from "framer-motion";
-import { HERO_ITEMS } from "@/utils/hero-items";
 import { HeroCardItem } from "./hero-card-item";
 import { heroItem, mobileHeroContainer } from "@/utils/animations";
+import { Aperture, Dumbbell, Sun, Trophy } from "lucide-react";
+import { useI18n } from "@/components/providers/i18n-provider";
 
 export const MobileHero = () => {
+  const { dictionary } = useI18n();
+  const heroIcons = [Dumbbell, Sun, Aperture, Trophy];
+
   return (
     <section className="flex sm:hidden flex-col mx-auto items-start bg-white justify-start relative w-full h-fit">
       <Image
@@ -25,18 +29,19 @@ export const MobileHero = () => {
           viewport={{ once: true }}
           className="grid p-8 grid-flow-col grid-rows-1 place-items-center gap-6 rounded-none border bg-card text-card-foreground"
         >
-          {HERO_ITEMS.map((item, _) => {
-            const Icon = item.image;
+          {dictionary.heroItems.map((title, index) => {
+            const Icon = heroIcons[index];
             return (
               <motion.li
-                key={item.title}
+                key={title}
                 variants={heroItem}
                 className="list-none"
               >
                 <HeroCardItem
-                  title={item.title}
+                  title={title}
                   image={Icon}
-                  key={item.title}
+                  itemIndex={index}
+                  key={title}
                 />
               </motion.li>
             );

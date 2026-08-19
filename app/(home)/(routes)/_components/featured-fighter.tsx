@@ -1,11 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/animations";
-import { HELENA_TEXT } from "@/utils/strings";
 import { GalleryCarousel } from "./gallery-carousel";
+import { useI18n } from "@/components/providers/i18n-provider";
 
 export const FeaturedFighter = () => {
-  const formattedHelenaText = HELENA_TEXT.replace(/\n/g, "<br>");
+  const { dictionary } = useI18n();
+  const formattedHelenaText = dictionary.featured.text.replace(/\n/g, "<br>");
 
   return (
     <section
@@ -23,7 +24,7 @@ export const FeaturedFighter = () => {
               className="flex justify-center"
             >
               <GalleryCarousel
-                description="Helena Jurišić"
+                description={dictionary.featured.carouselDescription}
                 images={["/helena.jpeg", "/helena2.jpeg"]}
                 withCard={false}
               />
@@ -36,11 +37,10 @@ export const FeaturedFighter = () => {
               className="max-w-xl px-4 space-y-4 sm:px-0 lg:max-w-2xl"
             >
               <h3 className="text-black font-semibold text-start md:text-center lg:text-left max-w-md">
-                NAJUSPJEŠNIJA SPORTAŠICA HRVATSKE U NEOLIMPIJSKIM SPORTOVIMA ZA
-                2024.
+                {dictionary.featured.eyebrow}
               </h3>
               <p className="text-gray-800 text-3xl font-semibold sm:text-4xl border-l-8 rounded-lg border-[#e08639] pl-2">
-                HELENA JURIŠIĆ
+                {dictionary.featured.title}
               </p>
               <p
                 className="text-gray-600"

@@ -2,10 +2,28 @@
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/animations";
 import { Card } from "@/components/ui/card";
-import { CONTACT_METHODS } from "@/utils/constants";
 import { SendEmailForm } from "@/components/send-email-form";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { useI18n } from "@/components/providers/i18n-provider";
 
 export const Contact = () => {
+  const { dictionary } = useI18n();
+  const contactMethods = [
+    {
+      icon: Mail,
+      contact: dictionary.contact.methods.email,
+    },
+    {
+      icon: Phone,
+      contact: dictionary.contact.methods.phone,
+      href: "tel:+385915401195",
+    },
+    {
+      icon: MapPin,
+      contact: dictionary.contact.methods.address,
+    },
+  ];
+
   return (
     <main className="mt-16 sm:mt-32 py-8 sm:py-16 bg-slate-100" id="contact">
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
@@ -18,18 +36,15 @@ export const Contact = () => {
             className="max-w-lg space-y-4"
           >
             <h3 className="text-indigo-600 font-semibold uppercase text-sm">
-              Dodatne informacije
+              {dictionary.contact.eyebrow}
             </h3>
             <p className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-              Pošaljite nam poruku!
+              {dictionary.contact.title}
             </p>
-            <p>
-              Kontaktirajte nas u slučaju bilo kakvih pitanja. Ispunite formu i
-              pošaljite nam poruku. Odgovorit ćemo u najkraćem mogućem roku.
-            </p>
+            <p>{dictionary.contact.description}</p>
             <div>
               <ul className="flex flex-wrap gap-4 items-center">
-                {CONTACT_METHODS.map((item, idx) => {
+                {contactMethods.map((item, idx) => {
                   const Icon = item.icon;
                   return (
                     <li key={idx} className="flex items-center gap-x-3">
@@ -50,12 +65,12 @@ export const Contact = () => {
               </ul>
             </div>
             <a
-              href="https://wa.me/385915401195"
+              href={dictionary.whatsapp.url}
               target="_blank"
               rel="noopener"
               className="inline-flex items-center justify-center rounded-md bg-[#25D366] px-5 py-3 text-white font-semibold hover:bg-[#1fb857] transition-colors"
             >
-              WhatsApp
+              {dictionary.contact.whatsappLabel}
             </a>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5786.3183454074015!2d16.42338269439156!3d43.51987336637534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13355de5b75b811f%3A0xaf24fc6abf0e93b!2sPoljud%2C%20Split!5e0!3m2!1sen!2shr!4v1715941582052!5m2!1sen!2shr"

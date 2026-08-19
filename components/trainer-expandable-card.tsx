@@ -116,9 +116,7 @@ export function ExpandableTrainerCard({
                     exit={{ opacity: 0 }}
                     className='max-h-[350px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent pr-2 text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]'
                   >
-                    {typeof active.content === 'function'
-                      ? active.content()
-                      : active.content}
+                    {active.content}
                   </motion.div>
                 </div>
               </div>

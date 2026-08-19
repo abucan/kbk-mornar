@@ -1,9 +1,9 @@
 interface TrainerItemProps {
-  id: string;
+  id: number;
   avatar: string;
   name: string;
   title: string;
-  content: () => React.ReactNode;
+  content: string;
   isDialog?: boolean;
 }
 
@@ -102,6 +102,7 @@ interface HeaderProps {
 interface HeroCardItemProps {
   title: string;
   image: any;
+  itemIndex: number;
 }
 
 interface LogoProps {

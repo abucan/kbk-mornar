@@ -2,15 +2,17 @@
 import { Header } from "./header";
 import { motion } from "framer-motion";
 import { ScheduleItem } from "./schedule-item";
-import { GYM_SCHEDULE } from "@/utils/gym-schedule";
 import { sectionContainer, sectionItem } from "@/utils/animations";
+import { useI18n } from "@/components/providers/i18n-provider";
 
 export const Schedule = () => {
+  const { dictionary } = useI18n();
+
   return (
     <section className="relative pt-16 sm:pt-32" id="schedule">
       <Header
-        title="Raspored treninga"
-        description="Pogledajte raspored treninga i pronađite najbolji termin za sebe."
+        title={dictionary.schedule.headerTitle}
+        description={dictionary.schedule.headerDescription}
         isRightSide
       />
       <motion.div
@@ -20,7 +22,7 @@ export const Schedule = () => {
         viewport={{ once: true }}
         className="max-w-screen-xl mx-auto px-4 md:px-8 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-8 sm:mt-16"
       >
-        {GYM_SCHEDULE.map((day) => {
+        {dictionary.schedule.days.map((day) => {
           return (
             <motion.div variants={sectionItem} key={day.dayOfWeek}>
               <ScheduleItem day={day} />

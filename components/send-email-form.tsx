@@ -9,18 +9,7 @@ import { Form, FormMessage } from './ui/form';
 import { CustomFormField } from './form-field';
 import { zodResolver } from '@hookform/resolvers/zod';
 import ReCAPTCHA from 'react-google-recaptcha';
-
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: 'Unesite ime i prezime',
-  }),
-  email: z.string().min(2, {
-    message: 'Unesite email.',
-  }),
-  message: z.string().min(2, {
-    message: 'Unesite poruku.',
-  }),
-});
+import { useI18n } from './providers/i18n-provider';
 
 declare global {
   interface Window {
@@ -31,6 +20,19 @@ declare global {
 const SEND_TO_FORM_SUCCESS = 'AW-18303407803/epX5CJ6P3eMcELut35dE';
 
 export const SendEmailForm = () => {
+  const { dictionary } = useI18n();
+  const formSchema = z.object({
+    name: z.string().min(2, {
+      message: dictionary.form.validation.name,
+    }),
+    email: z.string().min(2, {
+      message: dictionary.form.validation.email,
+    }),
+    message: z.string().min(2, {
+      message: dictionary.form.validation.message,
+    }),
+  });
+
   const [successMsg, setSuccessMsg] = useState('');
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -58,7 +60,7 @@ export const SendEmailForm = () => {
       if (!recaptchaToken) {
         form.setError('message', {
           type: 'manual',
-          message: 'Molimo potvrdite da niste bot.',
+          message: dictionary.form.validation.recaptcha,
         });
         return;
       }
@@ -80,7 +82,7 @@ export const SendEmailForm = () => {
         transport_type: 'beacon',
       });
 
-      setSuccessMsg('Poruka je uspješno poslana.');
+      setSuccessMsg(dictionary.form.validation.success);
       form.reset();
       recaptchaRef.current?.reset();
       setRecaptchaToken(null);
@@ -88,7 +90,7 @@ export const SendEmailForm = () => {
       console.error(error);
       form.setError('message', {
         type: 'manual',
-        message: 'Došlo je do greške. Pokušajte ponovno.',
+        message: dictionary.form.validation.failed,
       });
       recaptchaRef.current?.reset();
       setRecaptchaToken(null);
@@ -102,18 +104,18 @@ export const SendEmailForm = () => {
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
         <CustomFormField
           name='name'
-          label='Ime i Prezime'
-          placeholder='Unesite ime i prezime'
+          label={dictionary.form.labels.name}
+          placeholder={dictionary.form.placeholders.name}
         />
         <CustomFormField
           name='email'
-          label='Email'
-          placeholder='Unesite email'
+          label={dictionary.form.labels.email}
+          placeholder={dictionary.form.placeholders.email}
         />
         <CustomFormField
           name='message'
-          label='Poruka'
-          placeholder='Unesite poruku'
+          label={dictionary.form.labels.message}
+          placeholder={dictionary.form.placeholders.message}
           isTextArea
         />
         <div className='flex justify-center'>
@@ -129,7 +131,7 @@ export const SendEmailForm = () => {
           variant='outline'
           disabled={isSubmitting || !recaptchaToken}
         >
-          Pošalji
+          {dictionary.form.labels.send}
         </Button>
         <FormMessage>
           {successMsg && (

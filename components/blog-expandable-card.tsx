@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { hr } from "date-fns/locale";
 import { motion } from "framer-motion";
 import facebook from "@/public/facebook.svg";
 import { usePathname } from "next/navigation";
@@ -12,6 +11,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { sectionContainer, sectionItem } from "@/utils/animations";
 import { FooterSocialButton } from "@/app/(home)/(routes)/_components/footer-social-button";
+import { enUS, hr } from "date-fns/locale";
+import { useI18n } from "./providers/i18n-provider";
 
 import animation from "@/utils/animated-loader.json";
 
@@ -20,6 +21,7 @@ const Lottie = dynamic(() => import("lottie-react"), {
 });
 
 export function BlogExpandableCard() {
+  const { locale, dictionary } = useI18n();
   const [expandedCards, setExpandedCards] = useState<Map<string, boolean>>(
     new Map()
   );
@@ -42,7 +44,7 @@ export function BlogExpandableCard() {
   const formatRelativeTime = (dateString: string) => {
     return formatDistanceToNow(new Date(dateString), {
       addSuffix: true,
-      locale: hr,
+      locale: locale === "hr" ? hr : enUS,
     });
   };
 
@@ -127,14 +129,15 @@ export function BlogExpandableCard() {
                   >
                     {card.message}
                   </p>
-                  <span
+                  <button
+                    type="button"
                     className="font-bold text-[14px] cursor-pointer"
                     onClick={() => toggleExpand(card.id)}
                   >
                     {expandedCards.get(card.id)
-                      ? "Pročitaj manje"
-                      : "Pročitaj više"}
-                  </span>
+                      ? dictionary.blog.readLess
+                      : dictionary.blog.readMore}
+                  </button>
                   <Image
                     width={800}
                     height={600}
@@ -144,10 +147,17 @@ export function BlogExpandableCard() {
                     className="h-60 w-full  rounded-lg object-cover object-center"
                   />
                   <div className="flex justify-between text-sm text-muted-foreground">
-                    <span>{card.likes?.summary.total_count} Likes</span>
+                    <span>
+                      {card.likes?.summary.total_count} {dictionary.blog.likes}
+                    </span>
                     <div className="space-x-2">
-                      <span>{card.comments?.summary.total_count} Comments</span>
-                      <span>{0} Shares</span>
+                      <span>
+                        {card.comments?.summary.total_count}{" "}
+                        {dictionary.blog.comments}
+                      </span>
+                      <span>
+                        {0} {dictionary.blog.shares}
+                      </span>
                     </div>
                   </div>
                 </CardContent>
